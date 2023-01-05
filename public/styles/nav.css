@@ -1,0 +1,51 @@
+body {
+  margin: 0;
+  font-size: 28px;
+  font-family: "Lato", sans-serif;
+}
+
+.header {
+  background-color: #6b9080ff;
+  padding: 30px;
+  text-align: center;
+}
+
+#navbar {
+  overflow: hidden;
+  background-color: #6b9080ff;
+}
+
+#navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+#navbar a:hover {
+  background-color:  #a4c3b2ff;
+}
+
+#navbar a.active {
+  background-color: #6b9080ff;
+  color: white;
+}
+
+
+
+.content {
+  padding: 16px;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 60px;
+}
