@@ -12,13 +12,31 @@
   <link rel="stylesheet" href="/vendor/border-box.css" />
   <link rel="stylesheet" href="/styles/main.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
+  <link rel="stylesheet" href="/styles/todo.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/app.js"></script>
 </head>
 
 <body>
-  <h1>Have fun! 🥔</h1>
+  <div class="wrapper">
+    <div class="task-input">
+      <input type="text" placeholder="Add a new task">
+    </div>
+    <div class="controls">
+      <div class="filters">
+        <span class="active" id="all">All</span>
+        <span id="pending">Pending</span>
+        <span id="completed">Completed</span>
+      </div>
+      <button class="clear-btn">Clear All</button>
+    </div>
+    <ul class="task-box"> TEST TEST </ul>
+
+  </div>
 </body>
+
+
 
 </html>
