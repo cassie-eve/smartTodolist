@@ -1,5 +1,6 @@
 // Client facing scripts here
 const taskInput = document.querySelector(".task-input input"),
+dateInput = document.querySelector(".due-date input"),
 filters = document.querySelectorAll(".filters span"),
 clearAll = document.querySelector(".clear-btn"),
 taskBox = document.querySelector(".task-box");
@@ -20,7 +21,9 @@ function showTodo(filter) {
             let completed = todo.status == "completed" ? "checked" : "";
             if(filter == todo.status || filter == "all") {
                 liTag += `<li class="task">
+                
                             <label for="${id}">
+                                <div id="duedate">DDDDate: ${dateInput} </div>
                                 <input onclick="updateStatus(this)" type="checkbox" id="${id}" ${completed}>
                                 <p class="${completed}">${todo.name}</p>
                             </label>
