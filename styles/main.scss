@@ -19,11 +19,20 @@ body {
 }
 
 .login-form {
-  background-color: coral;
-  padding: 30px;
+
+  padding: 20px;
 }
 
 .password {
-  background-color: yellowgreen;
-  padding: 30px;
+
+  padding: 20px;
+}
+
+.controls {
+
+  padding: 10px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+
 }
