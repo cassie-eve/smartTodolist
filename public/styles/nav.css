@@ -26,15 +26,13 @@ body {
 }
 
 #navbar a:hover {
-  background-color:  #a4c3b2ff;
+  background-color: #a4c3b2ff;
 }
 
 #navbar a.active {
   background-color: #6b9080ff;
   color: white;
 }
-
-
 
 .content {
   padding: 16px;
@@ -48,4 +46,8 @@ body {
 
 .sticky + .content {
   padding-top: 60px;
+}
+
+.topnav-right {
+  float: right;
 }
