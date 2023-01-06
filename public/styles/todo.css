@@ -148,7 +148,6 @@ body{
   padding-bottom: 16px;
   align-items: flex-start;
   border-bottom: 1px solid #ccc;
-  background-color: coral;
 }
 .task-box .task:last-child{
   margin-bottom: 0;
@@ -158,12 +157,13 @@ body{
 .task-box .task label{
   display: flex;
   align-items: flex-start;
-  background-color: yellowgreen;
 }
 
 /* Due dates in task-box*/
-.task-box .task .label .div{
+.task label div{
     background-color: slateblue;
+    width: 120px;
+    align-content: center;
 }
 
 /* checkbox ticked colour */
@@ -175,6 +175,9 @@ body{
   user-select: none;
   margin-left: 12px;
   word-wrap: break-word;
+  background-color: wheat;
+  /* align-content: center;
+  justify-content: center; */
 }
 .task label p.checked{
   text-decoration: line-through;

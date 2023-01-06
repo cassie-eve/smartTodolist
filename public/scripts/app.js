@@ -23,7 +23,7 @@ function showTodo(filter) {
                 liTag += `<li class="task">
                 
                             <label for="${id}">
-                                <div id="duedate">DDDDate: ${dateInput} </div>
+                                <div id="duedate">DDate: ${dateInput} </div>
                                 <input onclick="updateStatus(this)" type="checkbox" id="${id}" ${completed}>
                                 <p class="${completed}">${todo.name}</p>
                             </label>
