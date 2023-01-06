@@ -5,8 +5,7 @@
  * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
  */
 
-const express = require('express');
-const router  = express.Router();
+const router = require('express').Router();
 const db = require('../db/connection');
 
 router.get('/', (req, res) => {
