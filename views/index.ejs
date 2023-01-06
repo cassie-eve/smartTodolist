@@ -27,16 +27,45 @@
 
 </head>
 
+<!-- PAGE HEADER WITH LOGO-->
+<header
+
+<div id="navbar">
+  <a href="/"><img src="https://see.fontimg.com/api/renderfont4/d91R6/eyJyIjoiZnMiLCJoIjoxMzAsInciOjIwMDAsImZzIjo2NSwiZmdjIjoiIzIwMjExRiIsImJnYyI6IiNGRkZGRkYiLCJ0IjoxfQ/TElTVElGWQ/jelibra.png" alt="listify_logo" width="300" height="80"></a>
+</div>
+<div class="topnav-right">
+  <a href="/">Logged in as user</a>
+</div>
+
+<script>
+window.onscroll = function() {myFunction()};
+var navbar = document.getElementById("navbar");
+var sticky = navbar.offsetTop;
+  function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
+  }
+}
+</script>
+
+</header>
+
 <body>
 
   <!-- SIDEBAR -->
   <div id="mySidebar" class="sidebar">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-    <a href="#">Film/Series</a>
+    <a href="#">Films/Series</a>
     <a href="#">Books</a>
     <a href="#">Products</a>
-    <a href="#">Uncategorized</a>
+    <a href="#">Restaurants</a>
     <a href="#">See all tasks</a>
+  </div>
+
+  <div id="main">
+    <button class="openbtn" onclick="openNav()">☰</button>
   </div>
 
   <script>
@@ -52,29 +81,6 @@
   </script>
 
 
-<!-- TOP NAV BAR -->
-<div id="navbar">
-  <a href="javascript:void(0)"><img src="https://see.fontimg.com/api/renderfont4/d91R6/eyJyIjoiZnMiLCJoIjoxMzAsInciOjIwMDAsImZzIjo2NSwiZmdjIjoiIzIwMjExRiIsImJnYyI6IiNGRkZGRkYiLCJ0IjoxfQ/TElTVElGWQ/jelibra.png" alt="listify_logo" width="300" height="80"></a>
-</div>
-
-<div id="main">
-  <button class="openbtn" onclick="openNav()">☰</button>
-</div>
-
-<script>
-window.onscroll = function() {myFunction()};
-
-var navbar = document.getElementById("navbar");
-var sticky = navbar.offsetTop;
-
-function myFunction() {
-  if (window.pageYOffset >= sticky) {
-    navbar.classList.add("sticky")
-  } else {
-    navbar.classList.remove("sticky");
-  }
-}
-</script>
 </body>
 
 </html>
