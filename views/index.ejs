@@ -18,6 +18,10 @@
   <link rel="stylesheet" href="/vendor/border-box.css" />
   <link rel="stylesheet" href="/styles/main.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
+  <link rel="stylesheet" href="/styles/todo.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="/styles/sidebar.css" />
+  <link rel="stylesheet" href="/styles/nav.css" />
   <link rel="stylesheet" href="/styles/sidebar.css" />
   <link rel="stylesheet" href="/styles/nav.css" />
 
@@ -54,6 +58,78 @@ var sticky = navbar.offsetTop;
 
 <body>
 
+    <!-- SIDEBAR -->
+    <div id="mySidebar" class="sidebar">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+      <a href="#">Film/Series</a>
+      <a href="#">Books</a>
+      <a href="#">Products</a>
+      <a href="#">Uncategorized</a>
+      <a href="#">See all tasks</a>
+    </div>
+  
+    <script>
+    function openNav() {
+      document.getElementById("mySidebar").style.width = "250px";
+      document.getElementById("main").style.marginLeft = "250px";
+    }
+  
+    function closeNav() {
+      document.getElementById("mySidebar").style.width = "0";
+      document.getElementById("main").style.marginLeft= "0";
+    }
+    </script>
+  
+  
+  <!-- TOP NAV BAR -->
+  <div id="navbar">
+    <a href="javascript:void(0)"><img src="https://see.fontimg.com/api/renderfont4/d91R6/eyJyIjoiZnMiLCJoIjoxMzAsInciOjIwMDAsImZzIjo2NSwiZmdjIjoiIzIwMjExRiIsImJnYyI6IiNGRkZGRkYiLCJ0IjoxfQ/TElTVElGWQ/jelibra.png" alt="listify_logo" width="300" height="80"></a>
+  </div>
+  
+  <div id="main">
+    <button class="openbtn" onclick="openNav()">☰</button>
+  </div>
+  
+  <script>
+  window.onscroll = function() {myFunction()};
+  
+  var navbar = document.getElementById("navbar");
+  var sticky = navbar.offsetTop;
+  
+  function myFunction() {
+    if (window.pageYOffset >= sticky) {
+      navbar.classList.add("sticky")
+    } else {
+      navbar.classList.remove("sticky");
+    }
+  }
+  </script>
+
+
+  <!-- Text-Box for adding/editing/deleting tasks -->
+  <div class="wrapper">
+    <div class="task-input">
+
+      <input type="text" placeholder="Add a new task">
+
+    </div>
+
+    <div class="due-date">
+      <input type="date" placeholder="Due date">
+    </div>
+    <div class="controls">
+      <div class="filters">
+        <span class="active" id="all">All</span>
+        <span id="pending">Pending</span>
+        <span id="completed">Completed</span>
+      </div>
+      <button class="clear-btn">Clear All</button>
+    </div>
+    <ul class="task-box"> TEST TEST </ul>
+
+  </div>
+
+  
   <!-- SIDEBAR -->
   <div id="mySidebar" class="sidebar">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>

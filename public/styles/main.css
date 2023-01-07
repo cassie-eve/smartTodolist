@@ -4,3 +4,27 @@ body {
   min-height: 100vh;
   background: #f6fff8ff;
 }
+
+.wrapper {
+  max-width: 800px;
+  padding: 28px 100px 30px 100px;
+  margin: 137px auto;
+  background: #fff;
+  border-radius: 7px;
+  box-shadow: 0 10px 0px rgba(0, 0, 0, 0.1);
+}
+
+.login-form {
+  padding: 20px;
+}
+
+.password {
+  padding: 20px;
+}
+
+.controls {
+  padding: 10px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
