@@ -161,7 +161,7 @@ body{
 
 /* Due dates in task-box*/
 .task label div{
-    background-color: slateblue;
+    /* background-color: slateblue; */
     width: 120px;
     align-content: center;
 }
@@ -175,7 +175,7 @@ body{
   user-select: none;
   margin-left: 12px;
   word-wrap: break-word;
-  background-color: wheat;
+  /* background-color: wheat; */
   /* align-content: center;
   justify-content: center; */
 }
