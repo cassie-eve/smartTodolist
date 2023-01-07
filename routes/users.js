@@ -5,11 +5,15 @@
  * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
  */
 
-const express = require('express');
-const router  = express.Router();
+//set variable for router to users
+const router = require('express').Router();
 
+//get request for path /users + '/'
 router.get('/', (req, res) => {
   res.render('users');
-}); 
+});
 
 module.exports = router;
+
+
+//this page is used for paths that start with /users, ex. /users/:id would be found here as a GET to '/:id'.

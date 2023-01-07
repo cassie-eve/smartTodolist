@@ -2,11 +2,17 @@
 <html lang="en">
 
 <head>
-  <title>Home Page</title>
+  <title>Listify</title>
+<!-- add icon link to browser tab -->
+<link rel = "icon" href =
+"https://image.similarpng.com/very-thumbnail/2021/12/Fragment-digital-letter-L-on-transparent-background-PNG.png"
+        type = "image/x-icon">
 
   <meta charset="UTF-8" >
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+
+  <!-- CSS Stylesheets -->
 
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
   <link rel="stylesheet" href="/vendor/border-box.css" />
@@ -16,10 +22,39 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="/styles/sidebar.css" />
   <link rel="stylesheet" href="/styles/nav.css" />
+  <link rel="stylesheet" href="/styles/sidebar.css" />
+  <link rel="stylesheet" href="/styles/nav.css" />
+
 
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/app.js"></script>
+
 </head>
+
+<!-- PAGE HEADER WITH LOGO-->
+<header
+
+<div id="navbar">
+  <a href="/"><img src="https://see.fontimg.com/api/renderfont4/d91R6/eyJyIjoiZnMiLCJoIjoxMzAsInciOjIwMDAsImZzIjo2NSwiZmdjIjoiIzIwMjExRiIsImJnYyI6IiNGRkZGRkYiLCJ0IjoxfQ/TElTVElGWQ/jelibra.png" alt="listify_logo" width="300" height="80"></a>
+</div>
+<div class="topnav-right">
+  <a href="/">Logged in as user</a>
+</div>
+
+<script>
+window.onscroll = function() {myFunction()};
+var navbar = document.getElementById("navbar");
+var sticky = navbar.offsetTop;
+  function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
+  }
+}
+</script>
+
+</header>
 
 <body>
 
@@ -95,6 +130,33 @@
   </div>
 
   
+  <!-- SIDEBAR -->
+  <div id="mySidebar" class="sidebar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+    <a href="#">Films/Series</a>
+    <a href="#">Books</a>
+    <a href="#">Products</a>
+    <a href="#">Restaurants</a>
+    <a href="#">See all tasks</a>
+  </div>
+
+  <div id="main">
+    <button class="openbtn" onclick="openNav()">☰</button>
+  </div>
+
+  <script>
+  function openNav() {
+    document.getElementById("mySidebar").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+  }
+
+  function closeNav() {
+    document.getElementById("mySidebar").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+  }
+  </script>
+
+
 </body>
 
 </html>

@@ -48,6 +48,23 @@ app.get('/', (req, res) => {
   res.render('index');
 });
 
+//checking what displays on the given user routes
+app.get('/users', (req, res) => {
+  res.render('users');
+});
+
+app.get('/api/users', (req, res) => {
+  res.render(res);
+});
+
+app.get('api/widgets', (req, res) => {
+  res.render(res);
+});
+
+app.get('/login', (req, res) => {
+  res.render('login');
+});
+
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });

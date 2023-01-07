@@ -1,10 +1,7 @@
 body {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   min-height: 100vh;
-  background: #a3d0db;
   background: #f6fff8ff;
 }
 
