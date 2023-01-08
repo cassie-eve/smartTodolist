@@ -25,28 +25,7 @@
 
   <!-- TOP NAV BAR -->
   <header>
-    <div id="navbar">
-      <a href="/"><img src="https://see.fontimg.com/api/renderfont4/d91R6/eyJyIjoiZnMiLCJoIjoxMzAsInciOjIwMDAsImZzIjo2NSwiZmdjIjoiIzIwMjExRiIsImJnYyI6IiNGRkZGRkYiLCJ0IjoxfQ/TElTVElGWQ/jelibra.png" alt="listify_logo" width="300" height="80"></a>
-    </div>
-
-    <div class="topnav-right">
-      <a href="/">Logged in as user</a>
-    </div>
-
-    <script>
-    window.onscroll = function() {myFunction()};
-
-    var navbar = document.getElementById("navbar");
-    var sticky = navbar.offsetTop;
-
-    function myFunction() {
-      if (window.pageYOffset >= sticky) {
-        navbar.classList.add("sticky")
-      } else {
-        navbar.classList.remove("sticky");
-      }
-    }
-    </script>
+    <%- include('partials/header.ejs') %>
   </header>
 
   <body>
@@ -58,10 +37,10 @@
       <form action="/login" method="POST" class="form-group">
         <h1> Please login </h1>
         <div class="login-form">
-          <input type="text" placeholder="Username">
+          <input type="text" name='username' placeholder="Username">
         </div>
         <div class="password">
-          <input type="password" placeholder="Password">
+          <input type="password" name='password' placeholder="Password">
         </div>
         <div class="controls">
           <button type='submit' class="Login">Login</button>
