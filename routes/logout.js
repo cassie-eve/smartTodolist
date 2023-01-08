@@ -1,7 +1,3 @@
-/*
- * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
- */
-
 const cookieSession = require('cookie-session');
 const router = require('express').Router();
 
@@ -12,9 +8,8 @@ router.use(cookieSession({
 }));
 
 router.post('/', (req, res) => {
-  let username = req.body.username;
-  req.session = [username];
-  res.redirect('/');
+  req.session = null;
+  res.redirect('/login');
 });
 
 module.exports = router;
