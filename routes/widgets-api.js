@@ -6,15 +6,12 @@
  */
 
 const router = require('express').Router();
-const db = require('../db/connection');
+const widgetQueries = require('../db/queries/widgets');
 
 router.get('/', (req, res) => {
-  const query = `SELECT * FROM widgets`;
-  console.log(query);
-  db.query(query)
+  widgetQueries.getWidgets()
     .then(data => {
-      const widgets = data.rows;
-      res.json({ widgets });
+      res.json({ data });
     })
     .catch(err => {
       res
