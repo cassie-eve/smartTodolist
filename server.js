@@ -50,6 +50,9 @@ app.use('/logout', logoutRoutes);
 // Separate them into separate routes files (see above).
 
 app.get('/', (req, res) => {
+  if (!req.cookies.session) {
+    res.redirect('/login');
+  }
   const templateVars = {
     username: req.cookies.session
   };
@@ -70,6 +73,9 @@ app.get('api/widgets', (req, res) => {
 });
 
 app.get('/login', (req, res) => {
+  if (req.cookies.session) {
+    res.redirect('/');
+  }
   const templateVars = {
     username: req.cookies.session
   };

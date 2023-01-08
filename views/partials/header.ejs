@@ -14,10 +14,13 @@
     <% } %>
 
   </div>
+  <% if(username){ %>
+    <div id="main">
+      <button class="openbtn" onclick="openNav()">☰</button>
+    </div>
+  <% } else{ %>
+  <% } %>
 
-  <div id="main">
-    <button class="openbtn" onclick="openNav()">☰</button>
-  </div>
 
   <script>
   window.onscroll = function() {myFunction()};
