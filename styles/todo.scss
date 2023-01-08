@@ -1,13 +1,13 @@
 /* Import Google Font - Poppins */
 /*@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');*/
-* {
+
+*{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   /*font-family: 'Poppins', sans-serif;*/
 }
-
-body {
+body{
   width: 100%;
   height: 100vh;
   overflow: hidden;
@@ -15,27 +15,26 @@ body {
 }
 
 /* colour when things are highlighted/selected */
-::selection {
+::selection{
   color: black;
   background: #cce3deff;
 }
-
-.wrapper {
+.wrapper{
   max-width: 800px;
   padding: 28px 0 30px;
   margin: 0 auto;
   border-radius: 7px;
-  box-shadow: 0 10px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 0px rgba(0,0,0,0.1);
 }
 
 /* box 'add a new task' */
-.task-input {
+.task-input{
   height: 52px;
   padding: 0 25px;
   position: relative;
 }
 
-.task-input input {
+.task-input input{
   height: 100%;
   width: 100%;
   outline: none;
@@ -47,16 +46,14 @@ body {
 
 /* 'add a new task' box when selected/active */
 .task-input input:focus,
-.task-input input.active {
+.task-input input.active{
   padding-left: 52px;
   border: 2px solid #a4c3b2ff;
 }
-
-.task-input input::placeholder {
+.task-input input::placeholder{
   color: eaf4f4ff;
 }
-
-.controls, li {
+.controls, li{
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -64,47 +61,45 @@ body {
 
 /* box due-date calendar */
 .due-date {
-  height: 52px;
-  padding: 0 25px;
-  position: relative;
+    height: 52px;
+    padding: 0 25px;
+    position: relative;
 }
 
-.due-date input {
-  margin-top: 10px;
-  height: 100%;
-  width: 100%;
-  outline: none;
-  font-size: 18px;
-  border-radius: 5px;
-  padding: 10px 20px 0 53px;
-  border: 1px solid #999;
+.due-date input{
+    margin-top: 10px;
+    height: 100%;
+    width: 100%;
+    outline: none;
+    font-size: 18px;
+    border-radius: 5px;
+    padding: 10px 20px 0 53px;
+    border: 1px solid #999;
 }
 
 /* border under All/Pending/Completed */
-.controls {
+.controls{
   padding: 18px 25px;
   border-bottom: 1px solid #6b9080ff;
+
   margin: 50px;
 }
 
 /* All/Pending/Completed */
-.filters span {
+.filters span{
   margin: 0 8px;
   font-size: 17px;
   color: #444444;
   cursor: pointer;
 }
-
-.filters span:first-child {
+.filters span:first-child{
   margin-left: 0;
 }
-
 /* All/Pending/Completed when selected */
-.filters span.active {
+.filters span.active{
   color: #a4c3b2ff;
 }
-
-.controls .clear-btn {
+.controls .clear-btn{
   border: none;
   opacity: 0.6;
   outline: none;
@@ -118,44 +113,36 @@ body {
   transition: transform 0.25s ease;
   background: linear-gradient(135deg, #a4c3b2ff 0%, #cce3deff 100%);
 }
-
-.clear-btn.active {
+.clear-btn.active{
   opacity: 0.9;
   pointer-events: auto;
 }
-
-.clear-btn:active {
+.clear-btn:active{
   transform: scale(0.93);
 }
-
-.task-box {
+.task-box{
   margin-top: 20px;
   margin-right: 5px;
   padding: 0 20px 10px 25px;
   height: 250px;
-  width: 700px;
+  width: 700px
 }
-
-.task-box.overflow {
+.task-box.overflow{
   overflow-y: auto;
   max-height: 300px;
 }
-
-.task-box::-webkit-scrollbar {
+.task-box::-webkit-scrollbar{
   width: 5px;
 }
-
-.task-box::-webkit-scrollbar-track {
+.task-box::-webkit-scrollbar-track{
   background: #f1f1f1;
   border-radius: 25px;
 }
-
-.task-box::-webkit-scrollbar-thumb {
+.task-box::-webkit-scrollbar-thumb{
   background: #e6e6e6;
   border-radius: 25px;
 }
-
-.task-box .task {
+.task-box .task{
   list-style: none;
   font-size: 17px;
   margin-bottom: 18px;
@@ -163,32 +150,29 @@ body {
   align-items: flex-start;
   border-bottom: 1px solid #ccc;
 }
-
-.task-box .task:last-child {
+.task-box .task:last-child{
   margin-bottom: 0;
   border-bottom: 0;
   padding-bottom: 0;
 }
-
-.task-box .task label {
+.task-box .task label{
   display: flex;
   align-items: flex-start;
 }
 
 /* Due dates in task-box*/
-.task label div {
-  /* background-color: slateblue; */
-  width: 120px;
-  align-content: center;
+.task label div{
+    /* background-color: slateblue; */
+    width: 120px;
+    align-content: center;
 }
 
 /* checkbox ticked colour */
-.task label input {
+.task label input{
   margin-top: 7px;
   accent-color: #a4c3b2ff;
 }
-
-.task label p {
+.task label p{
   user-select: none;
   margin-left: 12px;
   word-wrap: break-word;
@@ -196,38 +180,30 @@ body {
   /* align-content: center;
   justify-content: center; */
 }
-
-.task label p.checked {
+.task label p.checked{
   text-decoration: line-through;
 }
-
-.task-box .settings {
+.task-box .settings{
   position: relative;
 }
-
-.settings :where(i, li) {
+.settings :where(i, li){
   cursor: pointer;
 }
-
-.settings .task-menu {
-  display: flex;
+.settings .task-menu{
+    display: flex;
 }
-
-.task-box .task:last-child .task-menu {
+.task-box .task:last-child .task-menu{
   bottom: 0;
   transform-origin: bottom right;
 }
-
-.task-box .task:first-child .task-menu {
+.task-box .task:first-child .task-menu{
   bottom: -65px;
   transform-origin: top right;
 }
-
-.task-menu.show {
+.task-menu.show{
   transform: scale(1);
 }
-
-.task-menu li {
+.task-menu li{
   height: 25px;
   font-size: 16px;
   margin-bottom: 2px;
@@ -235,41 +211,34 @@ body {
   cursor: pointer;
   justify-content: flex-start;
 }
-
-.task-menu li:last-child {
+.task-menu li:last-child{
   margin-bottom: 0;
 }
-
-.settings li:hover {
+.settings li:hover{
   background: #f5f5f5;
 }
-
-.settings li i {
+.settings li i{
   padding-right: 8px;
 }
 
+
 @media (max-width: 400px) {
-  body {
+  body{
     padding: 0 10px;
   }
-
   .wrapper {
     padding: 20px 0;
   }
-
-  .filters span {
+  .filters span{
     margin: 0 5px;
   }
-
-  .task-input {
+  .task-input{
     padding: 0 20px;
   }
-
-  .controls {
+  .controls{
     padding: 18px 20px;
   }
-
-  .task-box {
+  .task-box{
     margin-top: 20px;
     margin-right: 5px;
     padding: 0 15px 10px 20px;
@@ -278,7 +247,9 @@ body {
   /* .tast-box-footer {
     color: green;
   } */
-  .task label input {
+  .task label input{
     margin-top: 4px;
   }
+
+
 }

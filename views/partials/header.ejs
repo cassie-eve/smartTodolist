@@ -1,61 +1,62 @@
-<header>
-  <div id="navbar">
+
+<header id="navbar">
+  <div>
+    <% if(username){ %>
+      <div id="main">
+        <button class="openbtn" onclick="toggleNav()"><i class="fa-solid fa-bars"></i></button>
+      </div>
+    <% } %>
+  </div>
+
+  <div>
     <a href="/"><img src="https://see.fontimg.com/api/renderfont4/d91R6/eyJyIjoiZnMiLCJoIjoxMzAsInciOjIwMDAsImZzIjo2NSwiZmdjIjoiIzIwMjExRiIsImJnYyI6IiNGRkZGRkYiLCJ0IjoxfQ/TElTVElGWQ/jelibra.png" alt="listify_logo" width="300" height="80"></a>
   </div>
 
-  <div class="topnav-right">
+  <div class="logout">
     <% if(username){ %>
-      <form method="POST" action="/logout">
-        <label>Logged In As: <%= username %></label>
-        <button type="submit">Logout</button>
+      <form method="POST" action="/logout" class="loggedIn">
+        <button class="logout" type="submit">Logout</button>
       </form>
-    <% } else{ %>
-      <p>logged out!</p>
     <% } %>
 
   </div>
-  <% if(username){ %>
-    <div id="main">
-      <button class="openbtn" onclick="openNav()">☰</button>
-    </div>
-  <% } else{ %>
-  <% } %>
-
 
   <script>
-  window.onscroll = function() {myFunction()};
+    window.onscroll = function() {myFunction()};
 
-  var navbar = document.getElementById("navbar");
-  var sticky = navbar.offsetTop;
+    let navbar = document.getElementById("navbar");
+    let sticky = navbar.offsetTop;
 
-  function myFunction() {
-    if (window.pageYOffset >= sticky) {
-      navbar.classList.add("sticky")
-    } else {
-      navbar.classList.remove("sticky");
+    function myFunction() {
+      if (window.pageYOffset >= sticky) {
+        navbar.classList.add("sticky")
+      } else {
+        navbar.classList.remove("sticky");
+      }
     }
-  }
   </script>
 
-      <!-- SIDEBAR -->
-      <div id="mySidebar" class="sidebar">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-        <a href="#">Film/Series</a>
-        <a href="#">Books</a>
-        <a href="#">Products</a>
-        <a href="#">Uncategorized</a>
-        <a href="#">See all tasks</a>
-      </div>
+  <!-- SIDEBAR -->
+  <div id="mySidebar" class="sidebar">
+    <div class="categories">
+      <a href="#">All Tasks</a>
+      <a href="#">To Watch</a>
+      <a href="#">To Read</a>
+      <a href="#">To Buy</a>
+      <a href="#">To Eat</a>
+      <a href="#">Completed</a>
+    </div>
+    <div class="sidebarLogout">
+      <a href="#">Logged in as <%= username %></a>
+      <a href="#">Log out</a>
+    </div>
+  </div>
 
-      <script>
-      function openNav() {
-        document.getElementById("mySidebar").style.width = "250px";
-        document.getElementById("main").style.marginLeft = "250px";
-      }
+  <script>
+    function toggleNav() {
+      let sidebar = document.getElementById("mySidebar");
+      sidebar.classList.toggle('toggle');
+    }
+  </script>
 
-      function closeNav() {
-        document.getElementById("mySidebar").style.width = "0";
-        document.getElementById("main").style.marginLeft= "0";
-      }
-      </script>
 </header>
