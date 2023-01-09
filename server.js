@@ -30,7 +30,7 @@ app.use(cookieParser());
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
 const userApiRoutes = require('./routes/users-api');
-const widgetApiRoutes = require('./routes/widgets-api');
+const taskApiRoutes = require('./routes/tasks-api');
 const usersRoutes = require('./routes/users');
 const loginRoutes = require('./routes/login');
 const logoutRoutes = require('./routes/logout');
@@ -39,7 +39,7 @@ const logoutRoutes = require('./routes/logout');
 // Note: Feel free to replace the example routes below with your own
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
 app.use('/api/users', userApiRoutes);
-app.use('/api/widgets', widgetApiRoutes);
+app.use('/api/tasks', taskApiRoutes);
 app.use('/users', usersRoutes);
 // Note: mount other resources here, using the same pattern above
 app.use('/login', loginRoutes);
@@ -60,15 +60,20 @@ app.get('/', (req, res) => {
 });
 
 //checking what displays on the given user routes
-app.get('/users', (req, res) => {
-  res.render('users');
-});
+//commented out because we no longer have this page
+// app.get('/users', (req, res) => {
+//   res.render('users');
+// });
+
+//will be used for database testing
 
 app.get('/api/users', (req, res) => {
   res.render(res);
 });
 
-app.get('api/widgets', (req, res) => {
+//will be used for database testing
+
+app.get('api/tasks', (req, res) => {
   res.render(res);
 });
 
