@@ -80,6 +80,26 @@ body {
   border: 1px solid #999;
 }
 
+/* priority dropdown menu */
+.priority {
+  height: 52px;
+  padding: 0 25px;
+  position: relative;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.priority input {
+  margin-top: 10px;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  font-size: 18px;
+  border-radius: 5px;
+  padding: 10px 20px 0 53px;
+  border: 1px solid #999;
+}
+
 /* border under All/Pending/Completed */
 .controls {
   padding: 18px 25px;
