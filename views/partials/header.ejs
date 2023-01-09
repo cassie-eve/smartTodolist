@@ -1,0 +1,66 @@
+
+<header id="navbar">
+  <div>
+    <% if(username){ %>
+      <div id="main">
+        <button class="openbtn" onclick="toggleNav()"><i class="fa-solid fa-bars"></i></button>
+      </div>
+    <% } %>
+  </div>
+
+  <div>
+    <a href="/"><img src="https://see.fontimg.com/api/renderfont4/d91R6/eyJyIjoiZnMiLCJoIjoxMzAsInciOjIwMDAsImZzIjo2NSwiZmdjIjoiIzIwMjExRiIsImJnYyI6IiNGRkZGRkYiLCJ0IjoxfQ/TElTVElGWQ/jelibra.png" alt="listify_logo" width="300" height="80"></a>
+  </div>
+
+  <div class="logout">
+    <% if(username){ %>
+      <form method="POST" action="/logout" class="loggedIn">
+        <button class="logout" type="submit">Logout</button>
+      </form>
+    <% } %>
+
+  </div>
+
+  <script>
+    window.onscroll = function() {myFunction()};
+
+    let navbar = document.getElementById("navbar");
+    let sticky = navbar.offsetTop;
+
+    function myFunction() {
+      if (window.pageYOffset >= sticky) {
+        navbar.classList.add("sticky")
+      } else {
+        navbar.classList.remove("sticky");
+      }
+    }
+  </script>
+
+  <!-- SIDEBAR -->
+  <div id="mySidebar" class="sidebar">
+    <div class="categories">
+      <a href="#">All Tasks</a>
+      <a href="#">To Watch</a>
+      <a href="#">To Read</a>
+      <a href="#">To Buy</a>
+      <a href="#">To Eat</a>
+      <a href="#">Completed</a>
+    </div>
+    <div class="sidebarLogout">
+      <a href="#">Logged in as <%= username %> </a>
+      <a href="#">
+        <form method="POST" action="/logout" class="loggedIn">
+          <button class="logout" type="submit">Logout</button>
+        </form>
+      </a>
+    </div>
+  </div>
+
+  <script>
+    function toggleNav() {
+      let sidebar = document.getElementById("mySidebar");
+      sidebar.classList.toggle('toggle');
+    }
+  </script>
+
+</header>
