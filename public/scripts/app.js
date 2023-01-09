@@ -6,7 +6,7 @@ clearAll = document.querySelector(".clear-btn"),
 taskBox = document.querySelector(".task-box");
 let editId,
 isEditTask = false,
-todos = JSON.parse(localStorage.getItem("todo-list"));
+todos = JSON.parse(localStorage.getItem("todo-list"));//fetch data from localStorage
 filters.forEach(btn => {
     btn.addEventListener("click", () => {
         document.querySelector("span.active").classList.remove("active");
@@ -23,14 +23,14 @@ function showTodo(filter) {
                 liTag += `<li class="task">
                 
                             <label for="${id}">
-                                <div id="duedate">DDate: ${dateInput} </div>
+                                <div id="duedate">${todo.date} </div>
                                 <input onclick="updateStatus(this)" type="checkbox" id="${id}" ${completed}>
                                 <p class="${completed}">${todo.name}</p>
                             </label>
                             <div class="settings">
                                 <i onclick="showMenu(this)" class="uil uil-ellipsis-h"></i>
                                 <ul class="task-menu test"> 
-                                    <li onclick='editTask(${id}, "${todo.name}")'><i class="fa-solid fa-pen-to-square"></i>Edit</li>
+                                    <li onclick='editTask(${id}, "${todo.name}", "${todo.date}")'><i class="fa-solid fa-pen-to-square"></i>Edit</li>
                                     <li onclick='deleteTask(${id}, "${filter}")'><i class="fa-solid fa-trash"></i>Delete</li>
                                 </ul>
                             </div>
@@ -43,6 +43,7 @@ function showTodo(filter) {
     !checkTask.length ? clearAll.classList.remove("active") : clearAll.classList.add("active");
     taskBox.offsetHeight >= 300 ? taskBox.classList.add("overflow") : taskBox.classList.remove("overflow");
 }
+//show all activities when refreshing page
 showTodo("all");
 function showMenu(selectedTask) {
     let menuDiv = selectedTask.parentElement.lastElementChild;
@@ -64,10 +65,11 @@ function updateStatus(selectedTask) {
     }
     localStorage.setItem("todo-list", JSON.stringify(todos))
 }
-function editTask(taskId, textName) {
+function editTask(taskId, textName, date) {
     editId = taskId;
     isEditTask = true;
     taskInput.value = textName;
+    dateInput.value = date;
     taskInput.focus();
     taskInput.classList.add("active");
 }
@@ -85,16 +87,19 @@ clearAll.addEventListener("click", () => {
 });
 taskInput.addEventListener("keyup", e => {
     let userTask = taskInput.value.trim();
+    let date = dateInput.value.trim();
     if(e.key == "Enter" && userTask) {
         if(!isEditTask) {
             todos = !todos ? [] : todos;
-            let taskInfo = {name: userTask, status: "pending"};
+            let taskInfo = {name: userTask, date: date, status: "pending"};
             todos.push(taskInfo);
         } else {
             isEditTask = false;
             todos[editId].name = userTask;
+            todos[editId].date = date;
         }
         taskInput.value = "";
+        dateInput.value = "";
         localStorage.setItem("todo-list", JSON.stringify(todos));
         showTodo(document.querySelector("span.active").id);
     }
