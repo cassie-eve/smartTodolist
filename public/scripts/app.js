@@ -1,6 +1,7 @@
 // Client facing scripts here
 const taskInput = document.querySelector(".task-input input"),
   dateInput = document.querySelector(".due-date input"),
+  priorityInput = document.querySelector(".priority input"),
   filters = document.querySelectorAll(".filters span"),
   clearAll = document.querySelector(".clear-btn"),
   taskBox = document.querySelector(".task-box");
@@ -14,6 +15,7 @@ filters.forEach(btn => {
     showTodo(btn.id);
   });
 });
+
 function showTodo(filter) {
   let liTag = "";
   if (todos) {
@@ -23,6 +25,7 @@ function showTodo(filter) {
         liTag += `<li class="task">
 
                             <label for="${id}">
+                                <div id="priority">${todo.priority} </div}
                                 <div id="duedate">${todo.date} </div>
                                 <input onclick="updateStatus(this)" type="checkbox" id="${id}" ${completed}>
                                 <p class="${completed}">${todo.name}</p>
@@ -30,7 +33,7 @@ function showTodo(filter) {
                             <div class="settings">
                                 <i onclick="showMenu(this)" class="uil uil-ellipsis-h"></i>
                                 <ul class="task-menu test"> 
-                                    <li onclick='editTask(${id}, "${todo.name}", "${todo.date}")'><i class="fa-solid fa-pen-to-square"></i>Edit</li>
+                                    <li onclick='editTask(${id}, "${todo.name}", "${todo.date}", "${todo.priority}")'><i class="fa-solid fa-pen-to-square"></i>Edit</li>
                                     <li onclick='deleteTask(${id}, "${filter}")'><i class="fa-solid fa-trash"></i>Delete</li>
                                 </ul>
                             </div>
@@ -88,10 +91,11 @@ clearAll.addEventListener("click", () => {
 taskInput.addEventListener("keyup", e => {
     let userTask = taskInput.value.trim();
     let date = dateInput.value.trim();
+    let priority = priorityInput.value.trim();
     if(e.key == "Enter" && userTask) {
         if(!isEditTask) {
             todos = !todos ? [] : todos;
-            let taskInfo = {name: userTask, date: date, status: "pending"};
+            let taskInfo = {name: userTask, date: date, priority: priority,status: "pending"};
             todos.push(taskInfo);
         } else {
             isEditTask = false;
@@ -100,6 +104,7 @@ taskInput.addEventListener("keyup", e => {
         }
         taskInput.value = "";
         dateInput.value = "";
+        priorityInput.value = "";
         localStorage.setItem("todo-list", JSON.stringify(todos));
         showTodo(document.querySelector("span.active").id);
     }
