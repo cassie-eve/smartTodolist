@@ -87,10 +87,12 @@ body{
 /* priority dropdown menu */
 .priority {
   height: 52px;
+  width: 100%;
   padding: 0 25px;
   position: relative;
   margin-top: 10px;
   margin-bottom: 20px;
+  font-size: 18px;
 }
 
 .priority input{
