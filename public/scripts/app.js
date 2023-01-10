@@ -1,7 +1,9 @@
 // Client facing scripts here
 const taskInput = document.querySelector(".task-input input"),
   dateInput = document.querySelector(".due-date input"),
-  priorityInput = document.querySelector(".priority input"),
+  priorityRanking = document.querySelector("priority"),
+  //priorityInput = $('.priority option:selected').val(), => only return the first line of dropdown 
+  //priorityInput = $(".priority :selected").text()
   filters = document.querySelectorAll(".filters span"),
   clearAll = document.querySelector(".clear-btn"),
   taskBox = document.querySelector(".task-box");
@@ -99,12 +101,14 @@ clearAll.addEventListener("click", () => {
 taskInput.addEventListener("keyup", e => {
     let userTask = taskInput.value.trim();
     let date = dateInput.value.trim();
-    let priority = priorityInput.value.trim();
+    //let priority = priorityInput.value.trim();
+    let priority = priorityInput;
     if(e.key == "Enter" && userTask) {
         if(!isEditTask) {
             todos = !todos ? [] : todos;
             let taskInfo = {name: userTask, date: date, priority: priority,status: "pending"};
             todos.push(taskInfo);
+            //console.log(priorityInput) => default
         } else {
             isEditTask = false;
             todos[editId].name = userTask;
