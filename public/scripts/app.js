@@ -16,6 +16,14 @@ filters.forEach(btn => {
   });
 });
 
+//icon color for indicating priorities
+const iconColor = {
+  1: 'red',
+  2: 'orange',
+  3: 'yellow',
+  4: 'white'
+};
+
 function showTodo(filter) {
   let liTag = "";
   if (todos) {
@@ -101,6 +109,7 @@ taskInput.addEventListener("keyup", e => {
             isEditTask = false;
             todos[editId].name = userTask;
             todos[editId].date = date;
+            todos[editId].priority = priority;
         }
         taskInput.value = "";
         dateInput.value = "";

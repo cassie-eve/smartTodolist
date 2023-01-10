@@ -88,10 +88,12 @@ body {
 /* priority dropdown menu */
 .priority {
   height: 52px;
+  width: 100%;
   padding: 0 25px;
   position: relative;
   margin-top: 10px;
   margin-bottom: 20px;
+  font-size: 18px;
 }
 
 .priority input {
@@ -103,6 +105,7 @@ body {
   border-radius: 5px;
   padding: 10px 20px 0 53px;
   border: 1px solid #999;
+  color: coral;
 }
 
 .priority :focus {
