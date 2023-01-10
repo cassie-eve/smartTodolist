@@ -104,6 +104,7 @@ taskInput.addEventListener("keyup", e => {
         }
         taskInput.value = "";
         dateInput.value = "";
+        priorityInput.value = "";
         localStorage.setItem("todo-list", JSON.stringify(todos));
         showTodo(document.querySelector("span.active").id);
     }
