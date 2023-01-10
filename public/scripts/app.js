@@ -3,7 +3,7 @@ const taskInput = document.querySelector(".task-input input"),
   dateInput = document.querySelector(".due-date input"),
   priorityRanking = document.querySelector("priority"),
   //priorityInput = $('.priority option:selected').val(), => only return the first line of dropdown 
-  //priorityInput = $(".priority :selected").text()
+  priorityInput = $(".priority :selected").val(),
   filters = document.querySelectorAll(".filters span"),
   clearAll = document.querySelector(".clear-btn"),
   taskBox = document.querySelector(".task-box");
@@ -18,6 +18,7 @@ filters.forEach(btn => {
   });
 });
 
+
 //icon color for indicating priorities
 const iconColor = {
   1: 'red',
@@ -28,6 +29,7 @@ const iconColor = {
 
 function showTodo(filter) {
   let liTag = "";
+  //console.log('Test Test', $(".priority :selected").val());
   if (todos) {
     todos.forEach((todo, id) => {
       let completed = todo.status == "completed" ? "checked" : "";
@@ -101,9 +103,10 @@ clearAll.addEventListener("click", () => {
 taskInput.addEventListener("keyup", e => {
     let userTask = taskInput.value.trim();
     let date = dateInput.value.trim();
-    //let priority = priorityInput.value.trim();
-    let priority = priorityInput;
+    let priority = $(".priority :selected").val();
+    //let priority = priorityInput;
     if(e.key == "Enter" && userTask) {
+      //console.log('test priority', priority);
         if(!isEditTask) {
             todos = !todos ? [] : todos;
             let taskInfo = {name: userTask, date: date, priority: priority,status: "pending"};
