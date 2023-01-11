@@ -3,6 +3,8 @@
     "commonjs": true,
     "es6": true,
     "node": true,
+    "browser": true,
+    "jquery": true,
     "mocha": true
   },
   "extends": "eslint:recommended",

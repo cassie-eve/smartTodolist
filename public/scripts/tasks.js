@@ -33,20 +33,15 @@ $(document).ready(function() {
     });
   };
 
-
-
-  const renderTasks = function (tasks) {
+  const renderTasks = function(tasks) {
     // $(`.task-box`).empty();
-    for (task of tasks) {
+    for (let task of tasks) {
       const $taskElement = createTaskElement(task);
-      $(`.task-box`).prepend($taskElement)
+      $(`.task-box`).prepend($taskElement);
     }
   };
-
   loadTasks();
 });
-
-
 
 // document ready
 //on loadup to display exsiting tasks in database
@@ -55,5 +50,4 @@ $(document).ready(function() {
 //on submission to update tasks table in database
 //const addTasks()
 
-
-Object.data
+Object.data;
