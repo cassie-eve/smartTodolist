@@ -86,6 +86,7 @@ const updateStatus = function(selectedTask) {
 };
 
 const editTask = function(taskId, textName, date) {
+  document.querySelectorAll('.category').forEach(el => el.hidden = false);
   editId = taskId;
   isEditTask = true;
   taskInput.value = textName;
