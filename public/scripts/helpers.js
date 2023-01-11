@@ -9,8 +9,6 @@ const categorize = function(string) {
     Authorization: 'Token YDEFqA9byG5i'
   };
   return new Promise(function(resolve, reject) {
-    console.log(`promise called`);
-
     // eslint-disable-next-line func-names
     tiny.post({url, data, headers}, function _posted(err, result) {
       if (err) {
