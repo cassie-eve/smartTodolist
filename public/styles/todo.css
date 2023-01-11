@@ -190,9 +190,10 @@ body {
   margin-right: 5px;
   margin-bottom: 20px;
   padding: 0 20px 10px 25px;
+  /* height: 290px; */
   width: 100%;
   overflow-y: scroll;
-  background-color: yellowgreen;
+  /* background-color: yellowgreen; */
 }
 
 .task-box.overflow {
@@ -233,11 +234,13 @@ body {
   align-items: flex-start;
 }
 
-/* Due dates in task-box*/
+/* Priority, Due date and category in task-box*/
 .task label div {
   /* background-color: slateblue; */
   width: 120px;
   align-content: center;
+  padding-left: 10px;
+  padding-right: 5px;
 }
 
 /* checkbox ticked colour */
