@@ -30,6 +30,7 @@ const iconColor = {
 const showTodo = function(filter) {
   let liTag = "";
   //console.log('Test Test', $(".priority :selected").val());
+  console.log('Test category in ShowTodo, ', $(".category :selected").val());
   if (todos) {
     todos.forEach((todo, id) => {
       let completed = todo.status === "completed" ? "checked" : "";
@@ -39,12 +40,13 @@ const showTodo = function(filter) {
             <div id="priority">${todo.priority} </div}
             <div id="duedate">${todo.date} </div>
             <input onclick="updateStatus(this)" type="checkbox" id="${id}" ${completed}>
+            <div id="category">${todo.category}</div>
             <p class="${completed}">${todo.name}</p>
           </label>
           <div class="settings">
             <i onclick="showMenu(this)" class="uil uil-ellipsis-h"></i>
             <ul class="task-menu test">
-                <li onclick='editTask(${id}, "${todo.name}", "${todo.date}", "${todo.priority}")'><i class="fa-solid fa-pen-to-square"></i>Edit</li>
+                <li onclick='editTask(${id}, "${todo.name}", "${todo.date}", "${todo.priority}", "${todo.category}")'><i class="fa-solid fa-pen-to-square"></i>Edit</li>
                 <li onclick='deleteTask(${id}, "${filter}")'><i class="fa-solid fa-trash"></i>Delete</li>
             </ul>
           </div>
@@ -85,12 +87,16 @@ const updateStatus = function(selectedTask) {
   localStorage.setItem("todo-list", JSON.stringify(todos));
 };
 
-const editTask = function(taskId, textName, date) {
+//notes: needs to add priority and categorys
+const editTask = function(taskId, textName, date, priority) {
   document.querySelectorAll('.category').forEach(el => el.hidden = false);
   editId = taskId;
   isEditTask = true;
   taskInput.value = textName;
   dateInput.value = date;
+  priorityInput.value = priority;
+  categoryInput.value = category;
+  console.log('Test edit, priority', priority, ' .Test edit, category, ', category);
   taskInput.focus();
   taskInput.classList.add("active");
 };
@@ -113,12 +119,13 @@ taskInput.addEventListener("keyup", e => {
     let userTask = taskInput.value.trim();
     let date = dateInput.value.trim();
     let priority = $(".priority :selected").val();
-    //let priority = priorityInput;
+    let category = $(".category :selected").val();
     if(e.key == "Enter" && userTask) {
       //console.log('test priority', priority);
+      console.log('test category', category);
         if(!isEditTask) {
             todos = !todos ? [] : todos;
-            let taskInfo = {name: userTask, date: date, priority: priority,status: "pending"};
+            let taskInfo = {name: userTask, date: date, priority: priority, category: category,status: "pending"};
             todos.push(taskInfo);
             //console.log(priorityInput) => default
         } else {
@@ -130,7 +137,10 @@ taskInput.addEventListener("keyup", e => {
         //Clear up the input boxes after submission
         taskInput.value = "";
         dateInput.value = "";
-        priorityInput.value = "";
+        //priorityInput.value = "";
+        // priority.selectedIndex = 0;
+        // category.selectedIndex = 0;
+        //$(".priority :selected").val('');
         localStorage.setItem("todo-list", JSON.stringify(todos));
         showTodo(document.querySelector("span.active").id);
     }

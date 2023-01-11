@@ -10,7 +10,7 @@
 body{
   width: 100%;
   height: 100vh;
-  overflow: auto;
+  overflow-y: scroll;
   background: #f6fff8ff;
 }
 
@@ -186,10 +186,12 @@ body{
 .task-box{
   margin-top: 20px;
   margin-right: 5px;
+  margin-bottom: 20px;
   padding: 0 20px 10px 25px;
-  height: 290px;
+  //height: 290px;
   width: 100%;
-  overflow-y: scroll
+  overflow-y: scroll;
+  background-color: yellowgreen;
 }
 .task-box.overflow{
   overflow-y: auto;
@@ -211,7 +213,7 @@ body{
   font-size: 17px;
   margin-bottom: 18px;
   padding-bottom: 16px;
-  align-items: flex-start;
+  //align-items: flex-start;
   border-bottom: 1px solid #ccc;
 }
 .task-box .task:last-child{
