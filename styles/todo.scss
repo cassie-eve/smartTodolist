@@ -10,7 +10,7 @@
 body{
   width: 100%;
   height: 100vh;
-  overflow: scroll;
+  overflow: hidden;
   background: #f6fff8ff;
 }
 
@@ -113,12 +113,38 @@ body{
   border: 2px solid #a4c3b2ff;
 }
 
+/* category dropdown */
+.category {
+  height: 52px;
+  width: 100%;
+  padding: 0 25px;
+  position: relative;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+.category input{
+  //margin-top: 10px;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  font-size: 18px;
+  border-radius: 5px;
+  padding: 10px 20px 0 53px;
+  border: 1px solid #999;
+}
+
+.category :focus{
+  border: 2px solid #a4c3b2ff;
+}
 /* border under All/Pending/Completed */
 .controls{
   padding: 18px 25px;
   border-bottom: 1px solid #6b9080ff;
 
-  margin: 50px;
+  margin: 0 50px 0 50px;
+  //margin:0 auto;
 }
 
 /* All/Pending/Completed */
@@ -160,7 +186,7 @@ body{
   margin-top: 20px;
   margin-right: 5px;
   padding: 0 20px 10px 25px;
-  height: 200px;
+  height: 290px;
   width: 100%;
   overflow-y: scroll
 }
