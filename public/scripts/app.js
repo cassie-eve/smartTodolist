@@ -133,8 +133,7 @@ taskInput.addEventListener("keyup", e => {
       type: 'POST',
       url: '/api/tasks',
       data: taskInfo,
-      success: function(res) {
-        // console.log(res);
+      success: function() {
         showTodo(document.querySelector("span.active").id);
       }
     });

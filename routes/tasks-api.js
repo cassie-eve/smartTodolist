@@ -1,7 +1,4 @@
 /*
- * All routes for Widget Data are defined here
- * Since this file is loaded in server.js into api/widgets,
- *   these routes are mounted onto /api/widgets
  * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
  */
 
@@ -23,12 +20,9 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
   taskQueries.addTasks(req.body)
     .then(data => {
-      // console.log(data);
       res.json({ data });
-
     })
     .catch(err => {
-      console.log(`DB QUERY FAILED`);
       res
         .status(500)
         .json({ error: err.message });
