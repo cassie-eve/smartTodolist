@@ -145,4 +145,18 @@ taskInput.addEventListener("keyup", e => {
         localStorage.setItem("todo-list", JSON.stringify(todos));
         showTodo(document.querySelector("span.active").id);
     }
+
+    //Clear up the input boxes after submission
+    taskInput.value = "";
+    dateInput.value = "";
+    priorityInput.value = "";
+    localStorage.setItem("todo-list", JSON.stringify(todos));
+    $.ajax({
+      type: 'POST',
+      url: '/api/tasks',
+      data: taskInfo,
+      success: function() {
+        showTodo(document.querySelector("span.active").id);
+      }
+    });
 });
