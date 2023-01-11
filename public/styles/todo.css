@@ -141,7 +141,7 @@ body {
 .controls {
   padding: 18px 25px;
   border-bottom: 1px solid #6b9080ff;
-  margin: 50px;
+  margin: 0 50px 0 50px;
 }
 
 /* All/Pending/Completed */
@@ -189,7 +189,7 @@ body {
   margin-top: 20px;
   margin-right: 5px;
   padding: 0 20px 10px 25px;
-  height: 200px;
+  height: 290px;
   width: 100%;
   overflow-y: scroll;
 }
