@@ -20,10 +20,12 @@ body{
   background: #cce3deff;
 }
 .wrapper{
-  max-width: 1400px;
+  width: 200%;
   max-height: 600px;
+  height: 700px;
   padding: 28px 0 30px;
   margin: 0 auto;
+  //margin: 0 0 0 0;
   border-radius: 7px;
   box-shadow: 0 10px 0px rgba(0,0,0,0.1);
 }
@@ -158,8 +160,8 @@ body{
   margin-top: 20px;
   margin-right: 5px;
   padding: 0 20px 10px 25px;
-  height: 150px;
-  width: 700px;
+  height: 200px;
+  width: 100%;
   overflow-y: scroll
 }
 .task-box.overflow{

@@ -118,6 +118,7 @@ taskInput.addEventListener("keyup", e => {
             todos[editId].date = date;
             todos[editId].priority = priority;
         }
+        //Clear up the input boxes after submission
         taskInput.value = "";
         dateInput.value = "";
         priorityInput.value = "";
