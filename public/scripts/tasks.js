@@ -39,7 +39,7 @@ $(document).ready(function() {
     // $(`.task-box`).empty();
     for (task of tasks) {
       const $taskElement = createTaskElement(task);
-      $(`.task-box`).prepend($taskElement)
+      $(`.task-box`).append($taskElement)
     }
   };
 
@@ -56,4 +56,4 @@ $(document).ready(function() {
 //const addTasks()
 
 
-Object.data
+
