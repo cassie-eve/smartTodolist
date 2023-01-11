@@ -20,4 +20,19 @@ router.get('/', (req, res) => {
     });
 });
 
+router.post('/', (req, res) => {
+  taskQueries.addTasks(req.body)
+    .then(data => {
+      // console.log(data);
+      res.json({ data });
+
+    })
+    .catch(err => {
+      console.log(`DB QUERY FAILED`);
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
+});
+
 module.exports = router;
