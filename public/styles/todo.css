@@ -21,8 +21,9 @@ body {
 }
 
 .wrapper {
-  max-width: 1400px;
+  width: 200%;
   max-height: 600px;
+  height: 700px;
   padding: 28px 0 30px;
   margin: 0 auto;
   border-radius: 7px;
@@ -163,8 +164,8 @@ body {
   margin-top: 20px;
   margin-right: 5px;
   padding: 0 20px 10px 25px;
-  height: 150px;
-  width: 700px;
+  height: 200px;
+  width: 100%;
   overflow-y: scroll;
 }
 

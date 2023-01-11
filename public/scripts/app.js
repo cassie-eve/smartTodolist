@@ -106,24 +106,29 @@ clearAll.addEventListener("click", () => {
 });
 
 taskInput.addEventListener("keyup", e => {
-  let userTask = taskInput.value.trim();
-  let date = dateInput.value.trim();
-  let priority = $(".priority :selected").val();
-  if (e.key === "Enter" && userTask) {
-    if (!isEditTask) {
-      todos = !todos ? [] : todos;
-      let taskInfo = {name: userTask, date: date, priority: priority,status: "pending"};
-      todos.push(taskInfo);
-    } else {
-      isEditTask = false;
-      todos[editId].name = userTask;
-      todos[editId].date = date;
-      todos[editId].priority = priority;
+    let userTask = taskInput.value.trim();
+    let date = dateInput.value.trim();
+    let priority = $(".priority :selected").val();
+    //let priority = priorityInput;
+    if(e.key == "Enter" && userTask) {
+      //console.log('test priority', priority);
+        if(!isEditTask) {
+            todos = !todos ? [] : todos;
+            let taskInfo = {name: userTask, date: date, priority: priority,status: "pending"};
+            todos.push(taskInfo);
+            //console.log(priorityInput) => default
+        } else {
+            isEditTask = false;
+            todos[editId].name = userTask;
+            todos[editId].date = date;
+            todos[editId].priority = priority;
+        }
+        //Clear up the input boxes after submission
+        taskInput.value = "";
+        dateInput.value = "";
+        priorityInput.value = "";
+        localStorage.setItem("todo-list", JSON.stringify(todos));
+        showTodo(document.querySelector("span.active").id);
     }
-    taskInput.value = "";
-    dateInput.value = "";
-    priorityInput.value = "";
-    localStorage.setItem("todo-list", JSON.stringify(todos));
-    showTodo(document.querySelector("span.active").id);
-  }
+
 });
