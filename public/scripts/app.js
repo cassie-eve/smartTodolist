@@ -3,8 +3,8 @@
 const taskInput = document.querySelector(".task-input input"),
   dateInput = document.querySelector(".due-date input"),
   priorityRanking = document.querySelector("priority"),
-  //priorityInput = $('.priority option:selected').val(), => only return the first line of dropdown
   priorityInput = $(".priority :selected").val(),
+  categoryInput = $(".category :selected").val(),
   filters = document.querySelectorAll(".filters span"),
   clearAll = document.querySelector(".clear-btn"),
   taskBox = document.querySelector(".task-box");
@@ -57,6 +57,8 @@ const showTodo = function(filter) {
   !checkTask.length ? clearAll.classList.remove("active") : clearAll.classList.add("active");
   taskBox.offsetHeight >= 300 ? taskBox.classList.add("overflow") : taskBox.classList.remove("overflow");
 };
+
+//hide category input box by default
 
 // Show all activities when refreshing page
 showTodo("all");
@@ -130,5 +132,4 @@ taskInput.addEventListener("keyup", e => {
         localStorage.setItem("todo-list", JSON.stringify(todos));
         showTodo(document.querySelector("span.active").id);
     }
-
 });
