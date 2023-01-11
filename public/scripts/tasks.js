@@ -33,20 +33,19 @@ $(document).ready(function() {
     });
   };
 
-
-
-  const renderTasks = function (tasks) {
+  const renderTasks = function(tasks) {
     // $(`.task-box`).empty();
-    for (task of tasks) {
+    for (let task of tasks) {
       const $taskElement = createTaskElement(task);
+<<<<<<< HEAD
       $(`.task-box`).append($taskElement)
+=======
+      $(`.task-box`).prepend($taskElement);
+>>>>>>> 0c1a52cc0212573bcd01c2bf6c217b8d8d9c1bc2
     }
   };
-
   loadTasks();
 });
-
-
 
 // document ready
 //on loadup to display exsiting tasks in database
@@ -55,5 +54,9 @@ $(document).ready(function() {
 //on submission to update tasks table in database
 //const addTasks()
 
+<<<<<<< HEAD
 
 
+=======
+Object.data;
+>>>>>>> 0c1a52cc0212573bcd01c2bf6c217b8d8d9c1bc2

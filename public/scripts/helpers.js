@@ -22,6 +22,7 @@ const categorize = function(string) {
           score = name.p;
         }
       }
+      console.log(category);
       return category;
     }
   });
