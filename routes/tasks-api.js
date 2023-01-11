@@ -6,10 +6,10 @@
  */
 
 const router = require('express').Router();
-const widgetQueries = require('../db/queries/widgets');
+const taskQueries = require('../db/queries/tasks');
 
 router.get('/', (req, res) => {
-  widgetQueries.getWidgets()
+  taskQueries.getTasks()
     .then(data => {
       res.json({ data });
     })
