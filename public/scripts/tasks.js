@@ -43,7 +43,7 @@ const formatDate = function(due_date) {
     // $(`.task-box`).empty();
     for (let task of tasks) {
       const $taskElement = createTaskElement(task);
-      $(`.task-box`).prepend($taskElement);
+      $(`.task-box`).append($taskElement)
     }
   };
   loadTasks();
@@ -56,4 +56,5 @@ const formatDate = function(due_date) {
 //on submission to update tasks table in database
 //const addTasks()
 
-Object.data;
+
+
