@@ -59,6 +59,7 @@ const showTodo = function(filter) {
 };
 
 //hide category input box by default
+document.querySelectorAll('.category').forEach(el => el.hidden = true);
 
 // Show all activities when refreshing page
 showTodo("all");
