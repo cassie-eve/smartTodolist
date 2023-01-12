@@ -81,7 +81,7 @@ const filterTasksByCategory = (category) => {
       $(`.task-box`).prepend($taskElement);
     }
   };
-  //loadTasks();
+  loadTasks();
 });
 
 // document ready
