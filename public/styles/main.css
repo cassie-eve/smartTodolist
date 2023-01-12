@@ -5,16 +5,17 @@ body {
   background: #f6fff8ff;
 }
 
+::selection {
+  color: black;
+  background: #cce3deff;
+}
+
 .wrapper {
   max-width: 900px;
   max-height: 5000px;
   background: #fff;
   border-radius: 7px;
   box-shadow: 0 10px 0px rgba(0, 0, 0, 0.1);
-}
-
-.login-form {
-  padding: 20px;
 }
 
 .password {
