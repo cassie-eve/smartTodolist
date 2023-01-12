@@ -3,21 +3,21 @@ $(document).ready(function() {
 
   const createTaskElement = function(data) {
     let $task = $(`<li class="task">
-
-    <label for="${data.id}">
+      <label for="${data.id}">
         <div id="priority">${data.priority} </div}
         <div id="duedate">${data.due_date} </div>
         <input onclick="updateStatus(this)" type="checkbox" id="${data.id}" ${data.completed}>
         <p class="${data.completed}">${data.name}</p>
-    </label>
-    <div class="settings">
+        <p>${data.category}</p>
+      </label>
+      <div class="settings">
         <i onclick="showMenu(this)" class="uil uil-ellipsis-h"></i>
         <ul class="task-menu test">
-            <li onclick='editTask(${data.id}, "${data.name}", "${data.due_date}", "${data.priority}")'><i class="fa-solid fa-pen-to-square"></i>Edit</li>
-            <li onclick='deleteTask(${data.id})'><i class="fa-solid fa-trash"></i>Delete</li>
+          <li onclick='editTask(${data.id}, "${data.name}", "${data.due_date}", "${data.priority}")'><i class="fa-solid fa-pen-to-square"></i>Edit</li>
+          <li onclick='deleteTask(${data.id})'><i class="fa-solid fa-trash"></i>Delete</li>
         </ul>
-    </div>
-</li>`);
+      </div>
+    </li>`);
 
     return $task;
   };
@@ -37,11 +37,7 @@ $(document).ready(function() {
     // $(`.task-box`).empty();
     for (let task of tasks) {
       const $taskElement = createTaskElement(task);
-<<<<<<< HEAD
-      $(`.task-box`).append($taskElement)
-=======
       $(`.task-box`).prepend($taskElement);
->>>>>>> 0c1a52cc0212573bcd01c2bf6c217b8d8d9c1bc2
     }
   };
   loadTasks();
@@ -54,9 +50,4 @@ $(document).ready(function() {
 //on submission to update tasks table in database
 //const addTasks()
 
-<<<<<<< HEAD
-
-
-=======
 Object.data;
->>>>>>> 0c1a52cc0212573bcd01c2bf6c217b8d8d9c1bc2
