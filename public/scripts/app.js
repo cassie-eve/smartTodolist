@@ -30,7 +30,7 @@ const iconColor = {
 const showTodo = function(filter) {
   let liTag = "";
   //console.log('Test Test', $(".priority :selected").val());
-  console.log('Test category in ShowTodo, ', $(".category :selected").val());
+  //console.log('Test category in ShowTodo, ', $(".category :selected").val());
   if (todos) {
     todos.forEach((todo, id) => {
       let completed = todo.status === "completed" ? "checked" : "";
@@ -96,7 +96,7 @@ const editTask = function(taskId, textName, date, priority) {
   dateInput.value = date;
   priorityInput.value = priority;
   categoryInput.value = category;
-  console.log('Test edit, priority', priority, ' .Test edit, category, ', category);
+  //console.log('Test edit, priority', priority, ' .Test edit, category, ', category);
   taskInput.focus();
   taskInput.classList.add("active");
 };
