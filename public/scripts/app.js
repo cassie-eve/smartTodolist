@@ -120,9 +120,11 @@ taskInput.addEventListener("keyup", e => {
     let date = dateInput.value.trim();
     let priority = $(".priority :selected").val();
     let category = $(".category :selected").val();
+    let taskInfo = {};
+
     if(e.key == "Enter" && userTask) {
       //console.log('test priority', priority);
-      console.log('test category', category);
+      //console.log('test category', category);
         if(!isEditTask) {
             todos = !todos ? [] : todos;
             let taskInfo = {name: userTask, date: date, priority: priority, category: category,status: "pending"};
@@ -135,16 +137,6 @@ taskInput.addEventListener("keyup", e => {
             todos[editId].priority = priority;
             todos[editId].category = category;
         }
-        //Clear up the input boxes after submission
-        // taskInput.value = "";
-        // dateInput.value = "";
-        //priorityInput.value = "";
-        // priority.selectedIndex = 0;
-        // category.selectedIndex = 0;
-        //$(".priority :selected").val('');
-        // localStorage.setItem("todo-list", JSON.stringify(todos));
-        // showTodo(document.querySelector("span.active").id);
-    }
 
     //Clear up the input boxes after submission
     taskInput.value = "";
@@ -159,4 +151,5 @@ taskInput.addEventListener("keyup", e => {
         showTodo(document.querySelector("span.active").id);
       }
     });
+  }
 });
