@@ -15,8 +15,16 @@ body {
   background-color: #6b9080ff;
   display: flex;
   align-items: center;
-  position: relative;
   margin-bottom: 60px;
+  position: sticky;
+  z-index: 100;
+  top: 0;
+}
+
+.stickyHeader {
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
 #navbar a {
@@ -39,16 +47,6 @@ body {
 
 .content {
   padding: 16px;
-}
-
-.sticky {
-  position: fixed;
-  top: 0;
-  width: 100%;
-}
-
-.sticky + .content {
-  padding-top: 60px;
 }
 
 .logout {
