@@ -41,6 +41,27 @@ $(document).ready(function() {
     }
   };
   loadTasks();
+
+  // $taskInput.addEventListener("keyup",function(event) {
+
+  //   event.preventDefault();
+
+  //   //user input
+  //   const taskText = $(".task-input input").val();
+
+  //   //user input made safe and replaced
+  //   const safeTask = escape(taskText);
+  //   $(".task-input input").val(safeTask);
+
+  //     $.ajax({
+  //       type: 'POST',
+  //       url: '/api/tasks',
+  //       data: $(this).serialize(),
+  //     }).then(loadTasks);
+  //     //console.log(data);
+
+  // });
+
 });
 
 // document ready
