@@ -36,7 +36,7 @@ const showTodo = function(filter) {
     todos.forEach((todo, id) => {
       let completed = todo.status === "completed" ? "checked" : "";
 
-      
+
       if (filter === todo.status || filter === "all") {
         let priorityIconColor = iconColor[Number(todo.priority)];
         liTag += `<li class="task">
@@ -129,9 +129,10 @@ taskInput.addEventListener("keyup", e => {
     if(e.key == "Enter" && userTask) {
       //console.log('test priority', priority);
       //console.log('test category', category);
+      let taskInfo;
         if(!isEditTask) {
             todos = !todos ? [] : todos;
-            let taskInfo = {name: userTask, date: date, priority: priority, category: category,status: "pending"};
+            taskInfo = {name: userTask, date: date, priority: priority, category: category,status: "pending"};
             todos.push(taskInfo);
             //console.log(priorityInput) => default
         } else {
@@ -147,12 +148,14 @@ taskInput.addEventListener("keyup", e => {
     dateInput.value = "";
     priorityInput.value = "";
     localStorage.setItem("todo-list", JSON.stringify(todos));
+    console.log(taskInfo);
     $.ajax({
       type: 'POST',
       url: '/api/tasks',
       data: taskInfo,
       success: function() {
         showTodo(document.querySelector("span.active").id);
+        loadTasks();
       }
     });
   }
