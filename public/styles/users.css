@@ -11,7 +11,7 @@
     overflow: hidden;
     background: #f6fff8ff;
   }
-  
+
   /* colour when things are highlighted/selected */
   ::selection{
     color: black;
@@ -25,14 +25,14 @@
     border-radius: 7px;
     box-shadow: 0 10px 0px rgba(0,0,0,0.1);
   }
-  
+
   /* box 'add a new task' */
   .task-input{
     height: 52px;
     padding: 0 25px;
     position: relative;
   }
-  
+
   .task-input input{
     height: 100%;
     width: 100%;
@@ -42,7 +42,7 @@
     padding: 10px 20px 0 53px;
     border: 1px solid #999;
   }
-  
+
   /* 'add a new task' box when selected/active */
   .task-input input:focus,
   .task-input input.active{
@@ -57,14 +57,14 @@
     align-items: center;
     justify-content: space-between;
   }
-  
+
   /* box due-date calendar */
   .due-date {
       height: 52px;
       padding: 0 25px;
       position: relative;
   }
-  
+
   .due-date input{
       margin-top: 10px;
       height: 100%;
@@ -75,15 +75,15 @@
       padding: 10px 20px 0 53px;
       border: 1px solid #999;
   }
-  
+
   /* border under All/Pending/Completed */
   .controls{
     padding: 18px 25px;
     border-bottom: 1px solid #6b9080ff;
-  
+
     margin: 50px;
   }
-  
+
   /* All/Pending/Completed */
   .filters span{
     margin: 0 8px;
@@ -97,27 +97,6 @@
   /* All/Pending/Completed when selected */
   .filters span.active{
     color: #a4c3b2ff;
-  }
-  .controls .clear-btn{
-    border: none;
-    opacity: 0.6;
-    outline: none;
-    color: black;
-    cursor: pointer;
-    font-size: 13px;
-    padding: 7px 13px;
-    border-radius: 4px;
-    letter-spacing: 0.3px;
-    pointer-events: none;
-    transition: transform 0.25s ease;
-    background: linear-gradient(135deg, #a4c3b2ff 0%, #cce3deff 100%);
-  }
-  .clear-btn.active{
-    opacity: 0.9;
-    pointer-events: auto;
-  }
-  .clear-btn:active{
-    transform: scale(0.93);
   }
   .task-box{
     margin-top: 20px;
@@ -156,14 +135,14 @@
     display: flex;
     align-items: flex-start;
   }
-  
+
   /* Due dates in task-box*/
   .task label div{
       /* background-color: slateblue; */
       width: 120px;
       align-content: center;
   }
-  
+
   /* checkbox ticked colour */
   .task label input{
     margin-top: 7px;
@@ -217,8 +196,8 @@
   .settings li i{
     padding-right: 8px;
   }
-  
-  
+
+
   @media (max-width: 400px) {
     body{
       padding: 0 10px;
@@ -240,14 +219,13 @@
       margin-right: 5px;
       padding: 0 15px 10px 20px;
     }
-  
+
     /* .tast-box-footer {
       color: green;
     } */
     .task label input{
       margin-top: 4px;
     }
-  
-  
+
+
   }
-  
