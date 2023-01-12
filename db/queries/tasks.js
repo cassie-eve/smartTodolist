@@ -31,7 +31,7 @@ const categorize = function(string) {
 };
 
 const getTasks = () => {
-  return db.query('SELECT * FROM tasks;')
+  return db.query('SELECT * FROM tasks ORDER BY id DESC;')
     .then(data => {
       return data.rows;
     });
