@@ -37,7 +37,7 @@ $(document).ready(function() {
     // $(`.task-box`).empty();
     for (let task of tasks) {
       const $taskElement = createTaskElement(task);
-      $(`.task-box`).append($taskElement);
+      $(`.task-box`).prepend($taskElement);
     }
   };
   loadTasks();
