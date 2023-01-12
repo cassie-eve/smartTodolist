@@ -5,7 +5,41 @@ const formatDate = function(due_date) {
     return dateFormat(due_date, "isoDate");
 };
 
+let tasks = [];
 
+$( "#read" ).click(function() {
+  filterTasksByCategory('read');
+});
+
+$( "#buy" ).click(function() {
+  filterTasksByCategory('buy');
+});
+
+$( "#watch" ).click(function() {
+  filterTasksByCategory('watch');
+});
+
+$( "#all" ).click(function() {
+  $(`.task-box`).html();
+  renderTasks(tasks);
+});
+
+$( "#pending" ).click(function() {
+  filterTasksByCategory(false);
+});
+
+$( "#completed" ).click(function() {
+  filterTasksByCategory(true);
+});
+
+
+const filterTasksByCategory = (category) => {
+  console.log('================', tasks, category);
+  const result = tasks.filter(task => task.category == category || task.completed == category);
+  console.log("+++++++++++++++", category, result);
+  $(`.task-box`).html( )
+  renderTasks(result);
+}
 
   const createTaskElement = function(data) {
     let $task = $(`<li class="task">
@@ -33,7 +67,8 @@ const formatDate = function(due_date) {
       type: 'GET',
       url: '/api/tasks',
       success: function(res) {
-        console.log(res.data);
+        console.log(res.data, "*************");
+        tasks = res.data;
         renderTasks(res.data);
       }
     });
@@ -46,7 +81,7 @@ const formatDate = function(due_date) {
       $(`.task-box`).prepend($taskElement);
     }
   };
-  loadTasks();
+  //loadTasks();
 });
 
 // document ready

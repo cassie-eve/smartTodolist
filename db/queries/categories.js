@@ -1,4 +1,6 @@
 const db = require('../connection');
+const tasks = require('./tasks');
+const users = require('./users');
 
 const watch = () => {
   return db.query('SELECT * FROM tasks WHERE category = watch;')
@@ -35,6 +37,13 @@ const completed = () => {
   });
 }
 
+const pending = () => {
+  return db.query('SELECT * FROM tasks WHERE completed = false;')
+  .then(data => {
+    return data.rows;
+  });
+}
+
 const all = () => {
   return db.query('SELECT * FROM tasks;')
   .then(data => {
@@ -42,4 +51,4 @@ const all = () => {
   });
 }
 
-module.exports = { watch, eat, read, buy, completed, all };
+module.exports = { watch, eat, read, buy, completed, pending, all };
