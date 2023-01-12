@@ -38,11 +38,10 @@ const showTodo = function(filter) {
 
       
       if (filter === todo.status || filter === "all") {
-        console.log(todo.priority);
         let priorityIconColor = iconColor[Number(todo.priority)];
         liTag += `<li class="task">
           <label for="${id}">
-            <div id="priority">${todo.priority} <i class="fa-solid fa-star" style="color:${priorityIconColor}"></i> </div}
+            <div id="priority"><i class="fa-solid fa-star" style="color:${priorityIconColor}"></i> </div}
             <div id="duedate">${todo.date} </div>
             <input onclick="updateStatus(this)" type="checkbox" id="${id}" ${completed}>
             <div id="category">${todo.category}</div>
