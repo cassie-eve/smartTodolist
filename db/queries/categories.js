@@ -8,24 +8,38 @@ const watch = () => {
 };
 
 const eat = () => {
-  return db.query('SELECT * FROM tasks WHERE category = watch;')
+  return db.query('SELECT * FROM tasks WHERE category = eat;')
     .then(data => {
       return data.rows;
     });
 };
 
 const read = () => {
-  return db.query('SELECT * FROM tasks WHERE category = watch;')
+  return db.query('SELECT * FROM tasks WHERE category = read;')
     .then(data => {
       return data.rows;
     });
 };
 
 const buy = () => {
-  return db.query('SELECT * FROM tasks WHERE category = watch;')
+  return db.query('SELECT * FROM tasks WHERE category = buy;')
     .then(data => {
       return data.rows;
     });
 };
 
-module.exports = { watch, eat, read, buy };
+const completed = () => {
+  return db.query('SELECT * FROM tasks WHERE completed = true;')
+  .then(data => {
+    return data.rows;
+  });
+}
+
+const all = () => {
+  return db.query('SELECT * FROM tasks;')
+  .then(data => {
+    return data.rows;
+  });
+}
+
+module.exports = { watch, eat, read, buy, completed, all };
