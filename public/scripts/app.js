@@ -21,10 +21,11 @@ filters.forEach(btn => {
 
 // Icon color for indicating priorities
 const iconColor = {
-  1: 'red',
-  2: 'orange',
-  3: 'yellow',
-  4: 'white'
+  0: 'blue',
+  1: 'grey',
+  2: 'yellow',
+  3: 'orange',
+  4: 'red'
 };
 
 const showTodo = function(filter) {
@@ -34,10 +35,13 @@ const showTodo = function(filter) {
   if (todos) {
     todos.forEach((todo, id) => {
       let completed = todo.status === "completed" ? "checked" : "";
+
+      
       if (filter === todo.status || filter === "all") {
+        let priorityIconColor = iconColor[Number(todo.priority)];
         liTag += `<li class="task">
           <label for="${id}">
-            <div id="priority">${todo.priority} </div}
+            <div id="priority"><i class="fa-solid fa-star" style="color:${priorityIconColor}"></i> </div}
             <div id="duedate">${todo.date} </div>
             <input onclick="updateStatus(this)" type="checkbox" id="${id}" ${completed}>
             <div id="category">${todo.category}</div>
