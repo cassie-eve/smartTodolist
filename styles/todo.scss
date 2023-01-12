@@ -163,26 +163,10 @@ body{
   color: #a4c3b2ff;
 }
 .controls .clear-btn{
-  border: none;
-  opacity: 0.6;
-  outline: none;
-  color: black;
-  cursor: pointer;
-  font-size: 13px;
-  padding: 7px 13px;
-  border-radius: 4px;
-  letter-spacing: 0.3px;
-  pointer-events: none;
-  transition: transform 0.25s ease;
-  background: linear-gradient(135deg, #a4c3b2ff 0%, #cce3deff 100%);
+  display: none;
+  visibility: hidden;
 }
-.clear-btn.active{
-  opacity: 0.9;
-  pointer-events: auto;
-}
-.clear-btn:active{
-  transform: scale(0.93);
-}
+
 .task-box{
   margin-top: 20px;
   margin-right: 5px;
