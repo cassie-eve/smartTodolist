@@ -21,6 +21,7 @@ body {
 
 .wrapper {
   margin: 0 auto;
+  min-width: 700px;
   border-radius: 7px;
 }
 
@@ -31,13 +32,14 @@ body {
   position: relative;
 }
 
-.task-input input {
+.task-input input,
+select.priority {
   height: 100%;
   width: 100%;
   outline: none;
   font-size: 18px;
   border-radius: 5px;
-  padding: 10px 20px 0 53px;
+  padding: 10px 20px 0 20px;
   border: 1px solid #999;
   margin-top: 10px;
 }
@@ -73,7 +75,7 @@ body {
   outline: none;
   font-size: 18px;
   border-radius: 5px;
-  padding: 10px 20px 0 53px;
+  padding: 10px 20px 0 20px;
   border: 1px solid #999;
 }
 

@@ -14,7 +14,7 @@ const renderTasks = function(tasks) {
   // $(`.task-box`).empty();
   for (let task of tasks) {
     const $taskElement = createTaskElement(task);
-    $(`.task-box`).append($taskElement)
+    $(`.task-box`).append($taskElement);
   }
 };
 
@@ -25,7 +25,7 @@ const createTaskElement = function(data) {
       <div id="duedate">${formatDate(data.due_date)}</div>
       <input onclick="updateStatus(this)" type="checkbox" id="${data.id}" ${data.completed}>
       <p class="${data.completed}">${data.name}</p>
-      <p>${data.category}</p>
+      <p class="cat">${data.category}</p>
     </label>
     <div class="settings">
       <i onclick="showMenu(this)" class="uil uil-ellipsis-h"></i>
