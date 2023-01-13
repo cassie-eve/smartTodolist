@@ -1,15 +1,15 @@
 // Client facing scripts here
 
-const taskInput = document.querySelector(".task-input input"),
-  dateInput = document.querySelector(".due-date input"),
-  priorityRanking = document.querySelector("priority"),
-  priorityInput = $(".priority :selected").val(),
-  categoryInput = $(".category :selected").val(),
-  filters = document.querySelectorAll(".filters span"),
-  clearAll = document.querySelector(".clear-btn"),
-  taskBox = document.querySelector(".task-box");
+const taskInput = document.querySelector(".task-input input");
+let dateInput = document.querySelector(".due-date input");
+let priorityRanking = document.querySelector("priority");
+let priorityInput = $(".priority :selected").val();
+let categoryInput = $(".category :selected").val();
+let filters = document.querySelectorAll(".filters span");
+let clearAll = document.querySelector(".clear-btn");
+let taskBox = document.querySelector(".task-box");
 let editId,
-  isEditTask = false,
+  isEditTask = false;
   todos = JSON.parse(localStorage.getItem("todo-list")); //fetch data from localStorage
 filters.forEach(btn => {
   btn.addEventListener("click", () => {
@@ -53,20 +53,29 @@ const showMenu = function(selectedTask) {
 
 const updateStatus = function(selectedTask) {
   let taskName = selectedTask.parentElement.lastElementChild;
-  if (selectedTask.checked) {
-    taskName.classList.add("checked");
-    todos[selectedTask.id].status = "completed";
-  } else {
-    taskName.classList.remove("checked");
-    todos[selectedTask.id].status = "pending";
-  }
-  localStorage.setItem("todo-list", JSON.stringify(todos));
+  console.log(selectedTask.id);
+  $.ajax({
+    type: 'POST',
+    url: `/api/tasks/${selectedTask.id}/status`,
+    success: function() {
+      loadTasks();
+    }
+  });
+  // if (selectedTask.checked) {
+  //   taskName.classList.add("checked");
+  //   todos[selectedTask.id].status = "completed";
+  // } else {
+  //   taskName.classList.remove("checked");
+  //   todos[selectedTask.id].status = "pending";
+  // }
+  // localStorage.setItem("todo-list", JSON.stringify(todos));
 };
 
 //notes: needs to add priority and categorys
-const editTask = function(taskId, textName, date, priority) {
+const editTask = function(taskId, textName, date, priority, category) {
   document.querySelectorAll('.category').forEach(el => el.hidden = false);
   editId = taskId;
+  //console.log(taskId);
   isEditTask = true;
   taskInput.value = textName;
   dateInput.value = date;
@@ -79,6 +88,14 @@ const editTask = function(taskId, textName, date, priority) {
 
 const deleteTask = function(deleteId, filter) {
   isEditTask = false;
+  console.log(deleteId);
+  $.ajax({
+    type: 'POST',
+    url: `/api/tasks/${deleteId}/delete`,
+    success: function() {
+      loadTasks();
+    }
+  });
   todos.splice(deleteId, 1);
   localStorage.setItem("todo-list", JSON.stringify(todos));
   showTodo(filter);
@@ -96,7 +113,7 @@ taskInput.addEventListener("keyup", e => {
   let date = dateInput.value.trim();
   let priority = $(".priority :selected").val();
   let category = $(".category :selected").val();
-  let taskInfo = {};
+
 
   if (e.key == "Enter" && userTask) {
     //console.log('test priority', priority);
@@ -109,10 +126,19 @@ taskInput.addEventListener("keyup", e => {
       //console.log(priorityInput) => default
     } else {
       isEditTask = false;
-      todos[editId].name = userTask;
-      todos[editId].date = date;
-      todos[editId].priority = priority;
-      todos[editId].category = category;
+      // console.log(todos);
+      // todos[editId].name = userTask;
+      // todos[editId].date = date;
+      // todos[editId].priority = priority;
+      // todos[editId].category = category;
+      $.ajax({
+        type: 'POST',
+        data: {name:userTask, category: category, date: date, priority: priority, status: true},
+        url: `/api/tasks/${editId}/edit`,
+        success: function() {
+          loadTasks();
+        }
+      });
     }
 
     //Clear up the input boxes after submission
@@ -132,3 +158,5 @@ taskInput.addEventListener("keyup", e => {
     });
   }
 });
+
+

@@ -1,7 +1,7 @@
 // Client facing scripts here
 
 const renderTasks = function(tasks) {
-  // $(`.task-box`).empty();
+  $(`.task-box`).empty();
   for (let task of tasks) {
     const $taskElement = createTaskElement(task);
     $(`.task-box`).append($taskElement);
@@ -48,7 +48,7 @@ $( "#completed" ).click(function() {
 
 
 const filterTasksByCategory = (category) => {
-  console.log('In filter function: all tasks and category', tasks, category); 
+  console.log('In filter function: all tasks and category', tasks, category);
   const result = tasks.filter(task => task.category == category || task.completed == category);
   console.log('In filter function, CATRGORY : ', category, ', RESULT : ', result);
   $(`.task-box`).html( )
@@ -65,6 +65,7 @@ const filterTasksByCategory = (category) => {
       }
     });
   };
+
 const prioritize = function(num) {
   if (num === '1' || num === 1) {
     return '<i style="color:#14EA38;border-radius:50%;" class="fa-regular fa-circle priority1"></i>';
