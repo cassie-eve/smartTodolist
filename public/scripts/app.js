@@ -1,9 +1,5 @@
 // Client facing scripts here
 
-//$(document).ready(function() {
-
-//console.log("========", tasks);
-
 const taskInput = document.querySelector(".task-input input");
 let dateInput = document.querySelector(".due-date input");
 let priorityRanking = document.querySelector("priority");
@@ -57,14 +53,22 @@ const showMenu = function(selectedTask) {
 
 const updateStatus = function(selectedTask) {
   let taskName = selectedTask.parentElement.lastElementChild;
-  if (selectedTask.checked) {
-    taskName.classList.add("checked");
-    todos[selectedTask.id].status = "completed";
-  } else {
-    taskName.classList.remove("checked");
-    todos[selectedTask.id].status = "pending";
-  }
-  localStorage.setItem("todo-list", JSON.stringify(todos));
+  console.log(selectedTask.id);
+  $.ajax({
+    type: 'POST',
+    url: `/api/tasks/${selectedTask.id}/status`,
+    success: function() {
+      loadTasks();
+    }
+  });
+  // if (selectedTask.checked) {
+  //   taskName.classList.add("checked");
+  //   todos[selectedTask.id].status = "completed";
+  // } else {
+  //   taskName.classList.remove("checked");
+  //   todos[selectedTask.id].status = "pending";
+  // }
+  // localStorage.setItem("todo-list", JSON.stringify(todos));
 };
 
 //notes: needs to add priority and categorys
@@ -80,13 +84,6 @@ const editTask = function(taskId, textName, date, priority, category) {
   //console.log('Test edit, priority', priority, ' .Test edit, category, ', category);
   taskInput.focus();
   taskInput.classList.add("active");
-  $.ajax({
-    type: 'POST',
-    url: `/api/tasks/${taskId}/edit`,
-    success: function() {
-      loadTasks();
-    }
-  });
 };
 
 const deleteTask = function(deleteId, filter) {
@@ -116,7 +113,7 @@ taskInput.addEventListener("keyup", e => {
   let date = dateInput.value.trim();
   let priority = $(".priority :selected").val();
   let category = $(".category :selected").val();
-  let taskInfo = {};
+
 
   if (e.key == "Enter" && userTask) {
     //console.log('test priority', priority);
@@ -129,13 +126,19 @@ taskInput.addEventListener("keyup", e => {
       //console.log(priorityInput) => default
     } else {
       isEditTask = false;
-      // tasks = localStorage.getItem(tasks);
-      // tasks = JSON.parse(tasks);
-      // console.log("========BBBBBBBBBB", tasks);
-      todos[editId].name = userTask;
-      todos[editId].date = date;
-      todos[editId].priority = priority;
-      todos[editId].category = category;
+      // console.log(todos);
+      // todos[editId].name = userTask;
+      // todos[editId].date = date;
+      // todos[editId].priority = priority;
+      // todos[editId].category = category;
+      $.ajax({
+        type: 'POST',
+        data: {name:userTask, category: category, date: date, priority: priority, status: true},
+        url: `/api/tasks/${editId}/edit`,
+        success: function() {
+          loadTasks();
+        }
+      });
     }
 
     //Clear up the input boxes after submission
@@ -156,4 +159,4 @@ taskInput.addEventListener("keyup", e => {
   }
 });
 
-//});
+
