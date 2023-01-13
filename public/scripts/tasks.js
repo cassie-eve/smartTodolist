@@ -22,16 +22,20 @@ const renderTasks = function(tasks) {
 let tasks = [];
 
 $( "#read" ).click(function() {
-  filterTasksByCategory('read');
+  filterTasksByCategory('To Read');
 });
 
 $( "#buy" ).click(function() {
-  filterTasksByCategory('buy');
+  filterTasksByCategory('To Buy');
 });
 
 $( "#watch" ).click(function() {
   //alert("clicked on watch");
-  filterTasksByCategory('watch');
+  filterTasksByCategory('To Watch');
+});
+
+$( "#eat" ).click(function() {
+  filterTasksByCategory('To Eat');
 });
 
 $( "#all" ).click(function() {
@@ -50,9 +54,9 @@ $( "#completed" ).click(function() {
 
 
 const filterTasksByCategory = (category) => {
-  console.log('In filter function: tasks and category', tasks, category);
+  console.log('In filter function: all tasks and category', tasks, category); //=> checked
   const result = tasks.filter(task => task.category == category || task.completed == category);
-  console.log("In filter function: category and result", category, result);
+  console.log('In filter function, CATRGORY : ', category, ', RESULT : ', result);
   $(`.task-box`).html( )
   renderTasks(result);
 }
@@ -83,7 +87,7 @@ const filterTasksByCategory = (category) => {
       type: 'GET',
       url: '/api/tasks',
       success: function(res) {
-        //console.log(res.data, "*************");
+        //console.log(res.data);
         tasks = res.data;
         renderTasks(res.data);
       }
