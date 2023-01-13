@@ -31,6 +31,7 @@ $( "#eat" ).click(function() {
 });
 
 $( "#all" ).click(function() {
+  $(`.task-box`).empty();
   $(`.task-box`).html();
   renderTasks(tasks);
 });
