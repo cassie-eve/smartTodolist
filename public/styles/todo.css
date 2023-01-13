@@ -47,7 +47,7 @@ select.priority {
 /* 'add a new task' box when selected/active */
 .task-input input:focus,
 .task-input input.active {
-  padding-left: 52px;
+  padding-left: 20px;
   border: 2px solid #a4c3b2ff;
 }
 
@@ -186,6 +186,7 @@ select.priority {
 .task label input {
   margin-top: 7px;
   accent-color: #a4c3b2ff;
+  display: none;
 }
 
 .task label p {
@@ -277,4 +278,35 @@ select.priority {
   .task label input {
     margin-top: 4px;
   }
+}
+.priority1 {
+  background-color: #CCFCD4;
+}
+
+.priority1:hover {
+  background-color: #14EA38;
+}
+
+.priority2 {
+  background-color: #FFF8A3;
+}
+
+.priority2:hover {
+  background-color: #E5D629;
+}
+
+.priority3 {
+  background-color: #F1BF83;
+}
+
+.priority3:hover {
+  background-color: #E78B1C;
+}
+
+.priority4 {
+  background-color: #EE9C99;
+}
+
+.priority4:hover {
+  background-color: #E82D27;
 }
