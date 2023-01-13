@@ -1,14 +1,4 @@
 // Client facing scripts here
-const loadTasks = function() {
-  $.ajax({
-    type: 'GET',
-    url: '/api/tasks',
-    success: function(res) {
-      console.log(res.data);
-      renderTasks(res.data);
-    }
-  });
-};
 
 const renderTasks = function(tasks) {
   // $(`.task-box`).empty();
@@ -18,6 +8,62 @@ const renderTasks = function(tasks) {
   }
 };
 
+let tasks = [];
+
+$( "#read" ).click(function() {
+  $(`.task-box`).empty();
+  filterTasksByCategory('To Read');
+});
+
+$( "#buy" ).click(function() {
+  $(`.task-box`).empty();
+  filterTasksByCategory('To Buy');
+});
+
+$( "#watch" ).click(function() {
+  $(`.task-box`).empty();
+  filterTasksByCategory('To Watch');
+});
+
+$( "#eat" ).click(function() {
+  $(`.task-box`).empty();
+  filterTasksByCategory('To Eat');
+});
+
+$( "#all" ).click(function() {
+  $(`.task-box`).html();
+  renderTasks(tasks);
+});
+
+$( "#pending" ).click(function() {
+  $(`.task-box`).empty();
+  filterTasksByCategory(false);
+});
+
+$( "#completed" ).click(function() {
+  $(`.task-box`).empty();
+  filterTasksByCategory(true);
+});
+
+
+const filterTasksByCategory = (category) => {
+  console.log('In filter function: all tasks and category', tasks, category); 
+  const result = tasks.filter(task => task.category == category || task.completed == category);
+  console.log('In filter function, CATRGORY : ', category, ', RESULT : ', result);
+  $(`.task-box`).html( )
+  renderTasks(result);
+}
+
+  const loadTasks = function() {
+    $.ajax({
+      type: 'GET',
+      url: '/api/tasks',
+      success: function(res) {
+        tasks = res.data;
+        renderTasks(res.data);
+      }
+    });
+  };
 const prioritize = function(num) {
   if (num === '1' || num === 1) {
     return '<i style="color:#14EA38;border-radius:50%;" class="fa-regular fa-circle priority1"></i>';
