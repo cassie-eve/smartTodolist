@@ -38,8 +38,7 @@ router.get('/', (req, res) => {
 
 //UPDATE - POST /:id/edit
 router.post('/:id/edit', (req, res) => {
-  console.log("+++++++++", req.body)
-  taskQueries.editTask(req.params.id)
+  taskQueries.editTask(req.body, req.params.id)
     .then(data => {
       res.json({ data });
     })
@@ -50,6 +49,20 @@ router.post('/:id/edit', (req, res) => {
         .json({ error: err.message });
     });
 });
+
+router.post('/:id/status', (req, res) => {
+  taskQueries.updateStatus(req.params.id)
+  .then(data => {
+    res.json({ data });
+  })
+  .catch(err => {
+    console.log(err);
+    res
+      .status(500)
+      .json({ error: err.message });
+  });
+});
+
 
 //DELETE - POST /:id/delete
 router.post('/:id/delete', (req, res) => {
