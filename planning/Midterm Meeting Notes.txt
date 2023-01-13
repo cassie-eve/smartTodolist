@@ -1,0 +1,275 @@
+﻿Where we’ll communicate:
+* Discord for daily communication
+* Monday - Friday standups in Zoom here
+* Organize work in our Trello Board
+   * https://trello.com/b/Dce7flV3/midterm
+
+Node.js
+Ajax
+CSS Framework - Bootstrap??
+jQuery
+
+FILTERS: completed, incomplete, high-priority,
+
+Create a task
+Due date
+Edit - mark as completed
+
+Categories
+Seeds
+Schema
+
+Lists of tasks
+Assigned to users
+
+Gaurav’s notes:
+
+Smart TODO List
+
+Database Tables :  Film/Series (id, title, rating, completed)
+
+
+                                   Restaurants, cafes, etc (id, name, location, rating,                                                   completed)
+
+
+                                  Books (id, title, author, rating, completed)
+
+
+                                  Products (id, name, price, completed)
+
+
+                                  Uncategorized (id, name/title, category, completed)
+
+
+                                  Completed (id, completed date & time)
+
+
+                                  Users (id, username, password, created tasks, completed                                           tasks)
+
+
+User is allowed to reclassify an item that has been entered, edit , delete, mark as complete
+
+Asdkfjalsdjfhasdf :
+1.        Project Setup (Create git and db)
+2.        Frontend | Responsive (HTML, SCSS)
+3.        Backend | API (Routes)
+4.        Database (ERD, Schemas, Seeds)
+
+ROUTES :
+
+Tasks to do (home page combing tables listed in order added)
+
+
+Browse         GET     /homepage
+Edit                  PATCH   /tasks/:id/edit (event trigger edit window, submit refreshes page)
+Add                 POST    /tasks (event trigger add task window, submit refreshes page)
+Delete                 DELETE  /tasks/:id (event trigger delete confirm window, submit refreshes page)
+
+User
+
+Browse          GET     /Login (sign up or login combined into one form/page)
+Logout         Button triggers DELETE request for cookies , and a GET request to redirect to                                                     /login
+
+
+Restaurants, cafes, etc.
+
+
+Browse                  GET     /Restaurants
+Read                  GET     /Restaurants/:id
+Edit                  PATCH   /Restaurants/:id/edit
+Add                  POST    /Restaurants
+Delete                  DELETE  /Restaurants/:id
+
+
+Books
+
+
+Browse                  GET     /Books
+Read                  GET     /Books/:id
+Edit                  PATCH   /Books/:id/edit
+Add                  POST    /Books
+Delete                  DELETE  /Books/:id
+
+
+Products
+
+
+Browse                  GET     /Products
+Read                  GET     /Products/:id
+Edit                  PATCH   /Products/:id/edit
+Add                  POST    /Products
+Delete                  DELETE  /Products/:id
+
+
+Uncategorized
+
+
+Browse                  GET     /Uncategorized
+Read                  GET     /Uncategorized/:id
+Edit                  PATCH   /Uncategorized/:id/edit
+Add                  POST    /Uncategorized
+Delete                  DELETE  /Uncategorized/:id
+
+
+Completed
+
+
+Browse                  GET     /Completed
+Read                  GET     /Completed/:id
+Edit                  PATCH   /Completed/:id/edit
+Add                  POST    /Completed
+Delete                  DELETE  /Completed/:id
+
+
+Users
+
+
+Browse                  GET     /Users
+Read                  GET     /Users/:id
+Edit                  PATCH   /Users/:id/edit
+Add                  POST    /Users
+Delete                  DELETE  /Users/:id
+
+
+As a user, I can add items to my TODO list that get categorized automatically based on the nature of the task, because it saves time and is convenient        while providing extra data I did not have access to initially.
+
+
+
+
+Multi-Page vs Single-Page :
+
+
+(MP) traditional website; page reloads when a new route is selected EX - Tinyapp
+
+
+(SP) content loaded dynamically without reloading, server sends back data, request made using AJAX EX - Tweeter
+
+
+
+
+Chelsea
+Wednesday - 10 AM PST - 6 PM PST
+Cass - 4 PM PST
+Gaurav - 4-6 PST
+Sheri
+
+
+
+User Stories
+
+
+As a User, I want to filter my Tasks, so I can keep my list organized.
+
+
+As a User, I want to be able to access Tasks I have completed, so I can see the things I’ve completed.
+
+
+As a User, I want to be able to select a due date for my Tasks, so I know what I need to do first.
+
+
+As a User, I want to be able to login and see my Tasks, so I don’t need to re-write them.
+
+
+As a User, I want to be able to delete Tasks, so I can remove the ones I no longer need.
+
+
+As a User, I want to be able to edit Tasks, so I can reassign information if necessary.
+
+
+
+
+To do for Wednesday:
+
+1. Review the requirements ( https://flex-web.compass.lighthouselabs.ca/projects/midterm-proj ) for your selected project.
+2. User stories.
+3. Database nouns / tables.
+4. ERD (consider Draw.IO)
+*** http://surl.li/ehdvd - shortened link to ERD visual ***
+5. Routes.
+
+
+6. Wireframes (consider Figma.)
+https://drive.google.com/file/d/10ERM0Fy4yLCtWoGoHikuk_cdx-dvx310/view
+7. Set up GitHub together (README, .gitignore)
+8. Decide upon and set-up the project structure and naming conventions together.
+9. Decide on workflow and tasks (consider use of a Trello board.)
+
+
+NICE-TO-HAVE-THINGS!
+* **bonus - alert for due date passed**
+* sorting / by date/category etc
+
+
+Cass
+Research for API classification:
+
+
+https://www.uclassify.com/manage/classifiers/smarttodolist/classes/watch?input=Files
+https://stackoverflow.com/questions/36385202/make-request-to-uclassify-api-via-node-request
+https://www.uclassify.com/docs/restapi
+https://datasetsearch.research.google.com/
+https://www.uclassify.com/manage/classifiers/smarttodolist/classes
+
+
+
+const addTask = function(newTask) {
+
+
+ const taskValues = [tasks.id, tasks.name, tasks.category, tasks.due_date, tasks.completed, tasks.priority, tasks.users_id];
+
+
+ const taskQuery =
+ `INSERT INTO tasks
+ (id, name, category, due_date, completed, priority, users_id)
+ VALUES ($1, $2, $3, $4, $5, $6, $7)
+ RETURNING *;`;
+
+
+   return db
+     .query(taskQuery, taskValues)
+     .then((result) => {
+       return result.rows[0];
+     })
+     .catch(error => {
+       console.log(error.message);
+     });
+ };
+
+
+https://github.com/YungComputer/smartToDoList/blob/master/lib/db.js
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   return db
+     .query(`INSERT INTO tasks (name, category, due_date, completed, priority, users_id)
+ VALUES ($1, $2, $3, $4, $5, $6)
+ RETURNING *;`, [userTask, 'category', date, false, priority, 1])
+     .then((result) => {
+       if (!result.rows.length) {
+         return null;
+       }
+       return result.rows[0];
+     })
+     .catch((err) => {
+       console.log(err.message);
+       return null;
+     });
