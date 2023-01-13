@@ -83,7 +83,7 @@ const filterTasksByCategory = (category) => {
       type: 'GET',
       url: '/api/tasks',
       success: function(res) {
-        console.log(res.data, "*************");
+        //console.log(res.data, "*************");
         tasks = res.data;
         renderTasks(res.data);
       }
