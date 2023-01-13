@@ -1,15 +1,19 @@
 // Client facing scripts here
 
-const taskInput = document.querySelector(".task-input input"),
-  dateInput = document.querySelector(".due-date input"),
-  priorityRanking = document.querySelector("priority"),
-  priorityInput = $(".priority :selected").val(),
-  categoryInput = $(".category :selected").val(),
-  filters = document.querySelectorAll(".filters span"),
-  clearAll = document.querySelector(".clear-btn"),
-  taskBox = document.querySelector(".task-box");
+//$(document).ready(function() {
+
+//console.log("========", tasks);
+
+const taskInput = document.querySelector(".task-input input");
+let dateInput = document.querySelector(".due-date input");
+let priorityRanking = document.querySelector("priority");
+let priorityInput = $(".priority :selected").val();
+let categoryInput = $(".category :selected").val();
+let filters = document.querySelectorAll(".filters span");
+let clearAll = document.querySelector(".clear-btn");
+let taskBox = document.querySelector(".task-box");
 let editId,
-  isEditTask = false,
+  isEditTask = false;
   todos = JSON.parse(localStorage.getItem("todo-list")); //fetch data from localStorage
 filters.forEach(btn => {
   btn.addEventListener("click", () => {
@@ -64,9 +68,10 @@ const updateStatus = function(selectedTask) {
 };
 
 //notes: needs to add priority and categorys
-const editTask = function(taskId, textName, date, priority) {
+const editTask = function(taskId, textName, date, priority, category) {
   document.querySelectorAll('.category').forEach(el => el.hidden = false);
   editId = taskId;
+  //console.log(taskId);
   isEditTask = true;
   taskInput.value = textName;
   dateInput.value = date;
@@ -75,6 +80,13 @@ const editTask = function(taskId, textName, date, priority) {
   //console.log('Test edit, priority', priority, ' .Test edit, category, ', category);
   taskInput.focus();
   taskInput.classList.add("active");
+  $.ajax({
+    type: 'POST',
+    url: `/api/tasks/${taskId}/edit`,
+    success: function() {
+      loadTasks();
+    }
+  });
 };
 
 const deleteTask = function(deleteId, filter) {
@@ -117,6 +129,9 @@ taskInput.addEventListener("keyup", e => {
       //console.log(priorityInput) => default
     } else {
       isEditTask = false;
+      // tasks = localStorage.getItem(tasks);
+      // tasks = JSON.parse(tasks);
+      // console.log("========BBBBBBBBBB", tasks);
       todos[editId].name = userTask;
       todos[editId].date = date;
       todos[editId].priority = priority;
@@ -140,3 +155,5 @@ taskInput.addEventListener("keyup", e => {
     });
   }
 });
+
+//});
