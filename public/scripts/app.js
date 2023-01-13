@@ -19,6 +19,9 @@ filters.forEach(btn => {
   });
 });
 
+//clear all localStorage data
+localStorage.clear();
+
 // Icon color for indicating priorities
 const iconColor = {
   0: 'blue',
