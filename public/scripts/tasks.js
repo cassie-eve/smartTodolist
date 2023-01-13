@@ -18,14 +18,52 @@ const renderTasks = function(tasks) {
   }
 };
 
+const prioritize = function(num) {
+  if (num === '1' || num === 1) {
+    return '🟢';
+  }
+
+  if (num === '2' || num === 2) {
+    return '🟡';
+  }
+
+  if (num === '3' || num === 3) {
+    return '🟠';
+  }
+
+  if (num === '4' || num === 4) {
+    return '🔴';
+  }
+};
+
+const cat = function(category) {
+  if (category === 'To Read') {
+    return '📚';
+  }
+
+  if (category === 'To Watch') {
+    return '📺';
+  }
+
+  if (category === 'To Buy') {
+    return '🛒';
+  }
+
+  if (category === 'To Eat') {
+    return '🍎';
+  }
+};
+
 const createTaskElement = function(data) {
+  let priority = prioritize(data.priority);
+  let category = cat(data.category);
   let $task = $(`<li class="task">
     <label for="${data.id}">
-      <div id="priority">${data.priority} </div}
-      <div id="duedate">${formatDate(data.due_date)}</div>
+      <div id="priority">${priority}    </div}
+      <div id="duedate">${formatDate(data.due_date)}   </div>
       <input onclick="updateStatus(this)" type="checkbox" id="${data.id}" ${data.completed}>
+      <p class="cat">${category}</p>
       <p class="${data.completed}">${data.name}</p>
-      <p class="cat">${data.category}</p>
     </label>
     <div class="settings">
       <i onclick="showMenu(this)" class="uil uil-ellipsis-h"></i>
