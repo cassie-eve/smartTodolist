@@ -20,19 +20,19 @@ const renderTasks = function(tasks) {
 
 const prioritize = function(num) {
   if (num === '1' || num === 1) {
-    return '🟢';
+    return '<i style="color:#14EA38;border-radius:50%;" class="fa-regular fa-circle priority1"></i>';
   }
 
   if (num === '2' || num === 2) {
-    return '🟡';
+    return '<i style="color:#E5D629;border-radius:50%;" class="fa-regular fa-circle priority2"></i>';
   }
 
   if (num === '3' || num === 3) {
-    return '🟠';
+    return '<i style="color:#E78B1C;border-radius:50%;" class="fa-regular fa-circle priority3"></i>';
   }
 
   if (num === '4' || num === 4) {
-    return '🔴';
+    return '<i style="color:#E82D27;border-radius:50%;" class="fa-regular fa-circle priority4"></i>';
   }
 };
 
