@@ -79,6 +79,14 @@ const editTask = function(taskId, textName, date, priority) {
 
 const deleteTask = function(deleteId, filter) {
   isEditTask = false;
+  console.log(deleteId);
+  $.ajax({
+    type: 'POST',
+    url: `/api/tasks/${deleteId}/delete`,
+    success: function() {
+      loadTasks();
+    }
+  });
   todos.splice(deleteId, 1);
   localStorage.setItem("todo-list", JSON.stringify(todos));
   showTodo(filter);
