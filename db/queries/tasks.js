@@ -22,6 +22,11 @@ const getTasks = () => {
 };
 
 //UPDATE
+const editTask = (taskInfo) => {
+  return db.query(`UPDATE tasks SET name = $1, category = $2, due_date = $3, completed = $4, priority = $5, users_id = $6
+    WHERE id = $7;`, [taskInfo.name, category, taskInfo.date, false, taskInfo.priority, 1, taskId])
+  .then((data) => {data.rows[0]});
+};
 
 //DELETE
 const deleteTask = (id) => {
@@ -31,4 +36,4 @@ const deleteTask = (id) => {
     });
 };
 
-module.exports = { getTasks, addTasks, deleteTask };
+module.exports = { getTasks, addTasks, deleteTask, editTask };
