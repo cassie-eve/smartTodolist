@@ -1,7 +1,7 @@
 // Client facing scripts here
 
 const renderTasks = function(tasks) {
-  // $(`.task-box`).empty();
+  $(`.task-box`).empty();
   for (let task of tasks) {
     const $taskElement = createTaskElement(task);
     $(`.task-box`).append($taskElement);
@@ -60,8 +60,6 @@ const filterTasksByCategory = (category) => {
       url: '/api/tasks',
       success: function(res) {
         tasks = res.data;
-        //console.log("========AAAAAAA", tasks);
-        //localStorage.setItem("tasks", JSON.stringify(tasks));
         renderTasks(res.data);
       }
     });
