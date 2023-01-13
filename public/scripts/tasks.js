@@ -47,7 +47,7 @@ $( "#completed" ).click(function() {
 
 
 const filterTasksByCategory = (category) => {
-  console.log('In filter function: all tasks and category', tasks, category); 
+  console.log('In filter function: all tasks and category', tasks, category);
   const result = tasks.filter(task => task.category == category || task.completed == category);
   console.log('In filter function, CATRGORY : ', category, ', RESULT : ', result);
   $(`.task-box`).html( )
@@ -60,10 +60,13 @@ const filterTasksByCategory = (category) => {
       url: '/api/tasks',
       success: function(res) {
         tasks = res.data;
+        //console.log("========AAAAAAA", tasks);
+        //localStorage.setItem("tasks", JSON.stringify(tasks));
         renderTasks(res.data);
       }
     });
   };
+
 const prioritize = function(num) {
   if (num === '1' || num === 1) {
     return '<i style="color:#14EA38;border-radius:50%;" class="fa-regular fa-circle priority1"></i>';
