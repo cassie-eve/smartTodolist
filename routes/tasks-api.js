@@ -34,8 +34,22 @@ router.get('/', (req, res) => {
 });
 
 //READ ONE - GET /:id
-//UPDATE - POST /:id/edit
 
+
+//UPDATE - POST /:id/edit
+router.post('/:id/edit', (req, res) => {
+  console.log("+++++++++", req.body)
+  taskQueries.editTask(req.params.id)
+    .then(data => {
+      res.json({ data });
+    })
+    .catch(err => {
+      console.log(err);
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
+});
 
 //DELETE - POST /:id/delete
 router.post('/:id/delete', (req, res) => {
