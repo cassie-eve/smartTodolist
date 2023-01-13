@@ -22,11 +22,17 @@ const getTasks = () => {
 };
 
 //UPDATE
-const editTask = (taskInfo) => {
+const editTask = (taskInfo, taskId) => {
   return db.query(`UPDATE tasks SET name = $1, category = $2, due_date = $3, completed = $4, priority = $5, users_id = $6
-    WHERE id = $7;`, [taskInfo.name, category, taskInfo.date, false, taskInfo.priority, 1, taskId])
+    WHERE id = $7;`, [taskInfo.name, taskInfo.category, taskInfo.date, false, taskInfo.priority, 1, taskId])
   .then((data) => {data.rows[0]});
 };
+
+const updateStatus = (taskId) => {
+  return db.query(`UPDATE tasks SET completed = true WHERE id = $1`, [taskId])
+  .then((data) => {data.rows[0]});
+}
+
 
 //DELETE
 const deleteTask = (id) => {
@@ -36,4 +42,4 @@ const deleteTask = (id) => {
     });
 };
 
-module.exports = { getTasks, addTasks, deleteTask, editTask };
+module.exports = { getTasks, addTasks, deleteTask, editTask, updateStatus };
