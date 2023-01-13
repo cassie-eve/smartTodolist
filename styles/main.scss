@@ -1,21 +1,20 @@
 body {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 100px;
   background: #f6fff8ff;
 }
 
+::selection{
+  color: black;
+  background: #cce3deff;
+}
 .wrapper {
   max-width: 900px;
-  padding: 28px 100px 30px 100px;
-  margin: 137px auto;
+  max-height: 5000px;
   background: #fff;
   border-radius: 7px;
   box-shadow: 0 10px 0px rgba(0,0,0,0.1);
-}
-
-.login-form {
-  padding: 20px;
 }
 
 .password {
