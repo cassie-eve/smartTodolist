@@ -13,6 +13,10 @@ body {
   background: #f6fff8ff;
 }
 
+select {
+  appearance: none;
+}
+
 /* colour when things are highlighted/selected */
 ::selection {
   color: black;
