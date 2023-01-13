@@ -64,15 +64,52 @@ const filterTasksByCategory = (category) => {
       }
     });
   };
+const prioritize = function(num) {
+  if (num === '1' || num === 1) {
+    return '<i style="color:#14EA38;border-radius:50%;" class="fa-regular fa-circle priority1"></i>';
+  }
+
+  if (num === '2' || num === 2) {
+    return '<i style="color:#E5D629;border-radius:50%;" class="fa-regular fa-circle priority2"></i>';
+  }
+
+  if (num === '3' || num === 3) {
+    return '<i style="color:#E78B1C;border-radius:50%;" class="fa-regular fa-circle priority3"></i>';
+  }
+
+  if (num === '4' || num === 4) {
+    return '<i style="color:#E82D27;border-radius:50%;" class="fa-regular fa-circle priority4"></i>';
+  }
+};
+
+const cat = function(category) {
+  if (category === 'To Read') {
+    return '📚';
+  }
+
+  if (category === 'To Watch') {
+    return '📺';
+  }
+
+  if (category === 'To Buy') {
+    return '🛒';
+  }
+
+  if (category === 'To Eat') {
+    return '🍎';
+  }
+};
 
 const createTaskElement = function(data) {
+  let priority = prioritize(data.priority);
+  let category = cat(data.category);
   let $task = $(`<li class="task">
     <label for="${data.id}">
-      <div id="priority">${data.priority} </div}
-      <div id="duedate">${formatDate(data.due_date)}</div>
+      <div id="priority">${priority}    </div}
+      <div id="duedate">${formatDate(data.due_date)}   </div>
       <input onclick="updateStatus(this)" type="checkbox" id="${data.id}" ${data.completed}>
+      <p class="cat">${category}</p>
       <p class="${data.completed}">${data.name}</p>
-      <p class="cat">${data.category}</p>
     </label>
     <div class="settings">
       <i onclick="showMenu(this)" class="uil uil-ellipsis-h"></i>

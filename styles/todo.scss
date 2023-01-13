@@ -21,7 +21,7 @@ body{
 .wrapper{
   margin: 0 auto;
 //  margin: 0 0 0 0;
-  min-width: 700px;
+  min-width: 800px;
   border-radius: 7px;
 }
 
@@ -39,7 +39,7 @@ select.priority {
   outline: none;
   font-size: 18px;
   border-radius: 5px;
-  padding: 10px 20px 0 20px;
+  padding: 10px 20px 15px 20px;
   border: 1px solid #999;
   margin-top: 10px;
 }
@@ -47,7 +47,7 @@ select.priority {
 /* 'add a new task' box when selected/active */
 .task-input input:focus,
 .task-input input.active{
-  padding-left: 52px;
+  padding-left: 20px;
   border: 2px solid #a4c3b2ff;
 }
 .task-input input::placeholder{
@@ -101,7 +101,7 @@ select.priority {
   outline: none;
   font-size: 18px;
   border-radius: 5px;
-  padding: 10px 20px 0 53px;
+  padding: 10px 20px 0 20px;
   border: 1px solid #999;
 }
 
@@ -128,7 +128,7 @@ select.priority {
   outline: none;
   font-size: 18px;
   border-radius: 5px;
-  padding: 10px 20px 0 53px;
+  padding: 10px 20px 0 20px;
   border: 1px solid #999;
 }
 
@@ -188,6 +188,7 @@ select.priority {
 .task label input{
   margin-top: 7px;
   accent-color: #a4c3b2ff;
+  display: none;
 }
 .task label p{
   user-select: none;
@@ -279,4 +280,36 @@ select.priority {
     margin-top: 4px;
   }
 
+}
+
+.priority1 {
+  background-color: #CCFCD4;
+};
+
+.priority1:hover {
+background-color: #14EA38;
+}
+
+.priority2 {
+  background-color: #FFF8A3;
+}
+
+.priority2:hover {
+  background-color: #E5D629;
+}
+
+.priority3 {
+  background-color: #F1BF83;
+}
+
+.priority3:hover {
+  background-color: #E78B1C;
+}
+
+.priority4 {
+  background-color: #EE9C99;
+}
+
+.priority4:hover {
+  background-color: #E82D27;
 }
