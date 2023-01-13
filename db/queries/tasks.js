@@ -1,13 +1,7 @@
 const db = require('../connection');
 const { categorize } = require('../../public/scripts/helpers');
 
-const getTasks = () => {
-  return db.query('SELECT * FROM tasks ORDER BY id DESC;')
-    .then(data => {
-      return data.rows;
-    });
-};
-
+//CREATE
 const addTasks = (taskInfo) => {
   return categorize(taskInfo.name).then(category => {
     if (!taskInfo.date) {
@@ -19,4 +13,22 @@ const addTasks = (taskInfo) => {
   });
 };
 
-module.exports = { getTasks, addTasks };
+//READ
+const getTasks = () => {
+  return db.query('SELECT * FROM tasks ORDER BY id DESC;')
+    .then(data => {
+      return data.rows;
+    });
+};
+
+//UPDATE
+
+//DELETE
+const deleteTask = (id) => {
+  return db.query('DELETE FROM tasks WHERE id = $1;',[id])
+    .then(data => {
+      return data.rows;
+    });
+};
+
+module.exports = { getTasks, addTasks, deleteTask };
