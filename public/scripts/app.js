@@ -30,35 +30,7 @@ const iconColor = {
 
 const showTodo = function(filter) {
   let liTag = "";
-  //console.log('Test Test', $(".priority :selected").val());
-  //console.log('Test category in ShowTodo, ', $(".category :selected").val());
-  if (todos) {
-    todos.forEach((todo, id) => {
-      let completed = todo.status === "completed" ? "checked" : "";
-
-
-      if (filter === todo.status || filter === "all") {
-        let priorityIconColor = iconColor[Number(todo.priority)];
-        liTag += `<li class="task">
-          <label for="${id}">
-            <div id="priority"><i class="fa-solid fa-star" style="color:${priorityIconColor}"></i> </div}
-            <div id="duedate">${todo.date} </div>
-            <input onclick="updateStatus(this)" type="checkbox" id="${id}" ${completed}>
-            <div id="category">${todo.category}</div>
-            <p class="${completed}">${todo.name}</p>
-          </label>
-          <div class="settings">
-            <i onclick="showMenu(this)" class="uil uil-ellipsis-h"></i>
-            <ul class="task-menu test">
-                <li onclick='editTask(${id}, "${todo.name}", "${todo.date}", "${todo.priority}", "${todo.category}")'><i class="fa-solid fa-pen-to-square"></i>Edit</li>
-                <li onclick='deleteTask(${id}, "${filter}")'><i class="fa-solid fa-trash"></i>Delete</li>
-            </ul>
-          </div>
-        </li>`;
-      }
-    });
-  }
-  taskBox.innerHTML = liTag || `<span>You don't have any task here</span>`;
+  taskBox.innerHTML = liTag;
   let checkTask = taskBox.querySelectorAll(".task");
   !checkTask.length ? clearAll.classList.remove("active") : clearAll.classList.add("active");
   taskBox.offsetHeight >= 300 ? taskBox.classList.add("overflow") : taskBox.classList.remove("overflow");
@@ -120,28 +92,28 @@ clearAll.addEventListener("click", () => {
 });
 
 taskInput.addEventListener("keyup", e => {
-    let userTask = taskInput.value.trim();
-    let date = dateInput.value.trim();
-    let priority = $(".priority :selected").val();
-    let category = $(".category :selected").val();
-    let taskInfo = {};
+  let userTask = taskInput.value.trim();
+  let date = dateInput.value.trim();
+  let priority = $(".priority :selected").val();
+  let category = $(".category :selected").val();
+  let taskInfo = {};
 
-    if(e.key == "Enter" && userTask) {
-      //console.log('test priority', priority);
-      //console.log('test category', category);
-      let taskInfo;
-        if(!isEditTask) {
-            todos = !todos ? [] : todos;
-            taskInfo = {name: userTask, date: date, priority: priority, category: category,status: "pending"};
-            todos.push(taskInfo);
-            //console.log(priorityInput) => default
-        } else {
-            isEditTask = false;
-            todos[editId].name = userTask;
-            todos[editId].date = date;
-            todos[editId].priority = priority;
-            todos[editId].category = category;
-        }
+  if (e.key == "Enter" && userTask) {
+    //console.log('test priority', priority);
+    //console.log('test category', category);
+    let taskInfo;
+    if (!isEditTask) {
+      todos = !todos ? [] : todos;
+      taskInfo = {name: userTask, date: date, priority: priority, category: category,status: "pending"};
+      todos.push(taskInfo);
+      //console.log(priorityInput) => default
+    } else {
+      isEditTask = false;
+      todos[editId].name = userTask;
+      todos[editId].date = date;
+      todos[editId].priority = priority;
+      todos[editId].category = category;
+    }
 
     //Clear up the input boxes after submission
     taskInput.value = "";
