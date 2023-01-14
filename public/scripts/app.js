@@ -1,5 +1,8 @@
 // Client facing scripts here
 
+
+let currentCategory = "All";
+
 const taskInput = document.querySelector(".task-input input");
 let dateInput = document.querySelector(".due-date input");
 let priorityRanking = document.querySelector("priority");
@@ -58,7 +61,12 @@ const updateStatus = function(selectedTask) {
     type: 'POST',
     url: `/api/tasks/${selectedTask.id}/status`,
     success: function() {
-      loadTasks();
+      if (currentCategory === "All") {
+        loadTasks();
+      }
+      else {
+        filterTasksByCategory(currentCategory);
+      }
     }
   });
   // if (selectedTask.checked) {
@@ -136,7 +144,12 @@ taskInput.addEventListener("keyup", e => {
         data: {name:userTask, category: category, date: date, priority: priority, status: true},
         url: `/api/tasks/${editId}/edit`,
         success: function() {
-          loadTasks();
+          if (currentCategory === "All") {
+            loadTasks();
+          }
+          else {
+            filterTasksByCategory(currentCategory);
+          }
         }
       });
     }

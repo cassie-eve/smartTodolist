@@ -11,52 +11,60 @@ const renderTasks = function(tasks) {
 let tasks = [];
 
 $( "#read" ).click(function() {
+  currentCategory = 'To Read';
   $(`.task-box`).empty();
-  filterTasksByCategory('To Read');
+  filterTasksByCategory(currentCategory);
 });
 
 $( "#buy" ).click(function() {
+  currentCategory = 'To Buy';
   $(`.task-box`).empty();
-  filterTasksByCategory('To Buy');
+  filterTasksByCategory(currentCategory);
 });
 
 $( "#watch" ).click(function() {
+  currentCategory = 'To Watch';
   $(`.task-box`).empty();
-  filterTasksByCategory('To Watch');
+  filterTasksByCategory(currentCategory);
 });
 
 $( "#eat" ).click(function() {
+  currentCategory = 'To Eat';
   $(`.task-box`).empty();
-  filterTasksByCategory('To Eat');
+  filterTasksByCategory(currentCategory);
 });
 
 $( "#all" ).click(function() {
+  currentCategory = 'All';
   $(`.task-box`).empty();
   $(`.task-box`).html();
   renderTasks(tasks);
 });
 
 $( "#pending" ).click(function() {
+  currentCategory = false;
   $(`.task-box`).empty();
-  filterTasksByCategory(false);
+  filterTasksByCategory(currentCategory);
 });
 
 $( "#completed" ).click(function() {
+  currentCategory = true;
   $(`.task-box`).empty();
-  filterTasksByCategory(true);
+  filterTasksByCategory(currentCategory);
 });
 
 
 const filterTasksByCategory = (category) => {
-  console.log('In filter function: all tasks and category', tasks, category);
-  const result = tasks.filter(task => task.category == category || task.completed == category);
-  console.log('In filter function, CATRGORY : ', category, ', RESULT : ', result);
-  $(`.task-box`).html( )
-  renderTasks(result);
+  loadTasks()
+  .then( () => {
+    const result = tasks.filter(task => task.category == category || task.completed == category);
+    $(`.task-box`).html( )
+    renderTasks(result);
+  } )
 }
 
   const loadTasks = function() {
-    $.ajax({
+    return  $.ajax({
       type: 'GET',
       url: '/api/tasks',
       success: function(res) {
