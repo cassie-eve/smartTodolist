@@ -57,9 +57,7 @@ $( "#completed" ).click(function() {
 const filterTasksByCategory = (category) => {
   loadTasks()
   .then( () => {
-    console.log('In filter function: all tasks and category', tasks, category);
     const result = tasks.filter(task => task.category == category || task.completed == category);
-    console.log('In filter function, CATEGORY : ', category, ', RESULT : ', result);
     $(`.task-box`).html( )
     renderTasks(result);
   } )
