@@ -36,6 +36,7 @@ $( "#eat" ).click(function() {
 
 $( "#all" ).click(function() {
   currentCategory = 'All';
+  $(`.task-box`).empty();
   $(`.task-box`).html();
   renderTasks(tasks);
 });
